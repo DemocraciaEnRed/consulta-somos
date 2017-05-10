@@ -1,5 +1,4 @@
-import * as Header from 'lib/site/header/component'
-import HeaderExt from 'ext/lib/site/header/component'
+import 'ext/lib/boot/overrides'
 
 import * as HomeForum from 'lib/site/home-forum/component'
 import HomeForumExt from 'ext/lib/site/home-forum/component'
@@ -13,7 +12,6 @@ import HelpExt from 'ext/lib/site/help/component'
 import * as SidebarListItem from 'lib/site/topic-layout/sidebar/list/list-item/component'
 import SidebarListItemExt from 'ext/lib/site/topic-layout/sidebar/list/list-item/component'
 
-Header.default = HeaderExt
 HomeForum.default = HomeForumExt
 HomeMultiForum.default = HomeMultiForumExt
 Help.default = HelpExt

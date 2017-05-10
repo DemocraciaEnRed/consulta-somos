@@ -1,5 +1,58 @@
+.ext-header
+  header-height = 72px
+
+  position: relative
+  height: header-height
+  box-shadow: 0 2px 2px rgba(#000, .2)
+
+  .header-items-wrapper
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    &:before,
+    &:after
+      display: none
+
+
+  .header-item.active .header-link,
+  .header-link:hover
+    color: #fff
+    background-color: #0695d6
+
+  .header-link
+    padding-left: 10px
+    padding-right: 10px
+    height: header-height
+    color: #0695d6
+    font-weight: 500
+    font-size: 15px
+    line-height: header-height
+
+  .logo
+    img
+      max-width: 100%
+      height: 50px
+
+  .dropdown-list
+    position: absolute
+    top: 72px
+    right: 0
+    color: #fff
+    border: none
+    width: 232px
+    background-color: #0695d6
+
+    a
+      font-size: 16px
+      text-align: left
+      text-transform: uppercase
+
+      &:hover
+        background-color: #17b2f8
+
 nav.navbar
-  height 72px
+  height: 72px
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2)
   .navbar-brand
     img
@@ -98,4 +151,3 @@ nav.navbar
 @media screen and (max-width: 940px)
   #toggleButton
     display block!important
-

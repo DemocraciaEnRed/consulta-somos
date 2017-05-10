@@ -1,10 +1,11 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router'
+import React, { Component } from 'react'
+import { Link } from 'react-router'
 import bus from 'bus'
-import config from 'lib/config'
+import isAbsoluteUrl from 'is-absolute-url'
+import UserBadge from 'lib/header/user-badge/component'
+import AnonUser from 'lib/header/anon-user/component'
 import userConnector from 'lib/site/connectors/user'
-import UserBadge from 'lib/site/header/user-badge/component'
-import AnonUser from 'lib/site/header/anon-user/component'
+import config from 'lib/config'
 
 class Header extends Component {
   constructor (props) {
@@ -58,9 +59,13 @@ class Header extends Component {
       backgroundColor: config.headerBackgroundColor
     }
 
+    const classes = ['header ext-header']
+
+    if (config.headerContrast) classes.push('with-contrast')
+
     return (
-      <nav className='navbar navbar-fixed-top' style={styles}>
-        <div className='container'>
+      <header className={classes.join(' ')} style={styles}>
+        <div className='container header-items-wrapper'>
           {
             this.state.showToggleSidebar &&
             (
@@ -72,41 +77,25 @@ class Header extends Component {
             )
           }
 
-          <Link
-            to={config.homeLink}
-            className='navbar-brand logo-mobile'>
-            <img
-              src={config.logoMobile}
-              className='d-inline-block align-top'
-              height='30' />
-          </Link>
-          <Link
-            to={config.homeLink}
-            className='navbar-brand logo-desktop'>
-            <img
-              src={config.logo}
-              className='d-inline-block align-top'
-              height='30' />
-          </Link>
+          <Logo />
 
-          <ul
-            className='nav navbar-nav float-xs-right'>
-            <li className='nav-item org-link hidden-md-down'>
+          <div className='header-items'>
+            <div className='header-item org-link'>
               <Link
                 to='/ayuda/como-funciona'
-                className='nav-link'>
+                className='header-link hidden-xs-down'>
                 <span>¿Cómo funciona?</span>
               </Link>
-            </li>
+            </div>
 
             {this.props.user.state.fulfilled && (
-              <li className='nav-item'>
+              <div className='header-item notifications-link'>
                 <Link
                   to='/notifications'
-                  className='nav-link hidden-xs-down'>
+                  className='header-link'>
                   <span className='icon-bell' />
                 </Link>
-              </li>
+              </div>
             )}
 
             {this.props.user.state.fulfilled && (
@@ -116,11 +105,30 @@ class Header extends Component {
             {this.props.user.state.rejected && (
               <AnonUser form={this.state.userForm} />
             )}
-          </ul>
+          </div>
         </div>
-      </nav>
+      </header>
     )
   }
+}
+
+const Logo = () => {
+  const isAbsolute = isAbsoluteUrl(config.homeLink)
+
+  const Element = isAbsolute ? React.DOM.a : Link
+
+  const props = {
+    className: 'logo',
+    [isAbsolute ? 'href' : 'to']: config.homeLink,
+    rel: isAbsolute ? 'noopener nofollow' : null
+  }
+
+  return (
+    <Element {...props}>
+      <img className='logo-desktop' src={config.logo} />
+      <img className='logo-mobile' src={config.logoMobile} />
+    </Element>
+  )
 }
 
 export default userConnector(Header)

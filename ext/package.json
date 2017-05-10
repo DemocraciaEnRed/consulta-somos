@@ -9,6 +9,9 @@
   "private": true,
   "license": "GPL-3.0",
   "browser": {
-    "lib/config" : "lib/config/config"
+    "lib/config": "lib/config/config"
+  },
+  "dependencies": {
+    "argob-poncho": "~0.3.2"
   }
 }
