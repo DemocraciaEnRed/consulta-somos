@@ -1,65 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import debug from 'debug'
 import userConnector from 'lib/site/connectors/user'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import Footer from 'ext/lib/site/footer/component'
-
-const log = debug('democracyos:home-multiforum')
 
 class HomeMultiForum extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      forums: [],
-      userHasForums: false,
-      loading: false,
-      loadingUserForms: false
+      forums: []
     }
   }
 
-  componentWillMount () {
-    this.setState({ loading: true })
-
-    forumStore.findAll()
-      .then((forums) => {
-        this.setState({
-          loading: false,
-          noMore: forums.length === 0,
-          forums: this.state.forums.concat(forums),
-          page: this.state.page + 1
-        })
-      }).catch((err) => {
-        log('Forum home fetch error: ', err)
-        this.setState({ loading: false })
-      })
-
-    this.getUserForums()
-  }
-
-  getUserForums = () => {
-    this.setState({ loadingUserForms: true })
-
-    forumStore.findAll({
-      'privileges.canChangeTopics': true
-    }).then((forums) => {
-      this.setState({
-        userHasForums: forums && forums.length > 0,
-        loadingUserForms: false
-      })
-    }).catch((err) => {
-      if (err.status !== 400) throw err
-
-      this.setState({
-        userHasForums: false,
-        loadingUserForms: false
-      })
-    })
+  componentDidMount () {
+    forumStore.findAll().then((forums) => {
+      this.setState({ forums })
+    }).catch((err) => { throw err })
   }
 
   render () {
-    if (this.state.loadingUserForms) return null
     if (this.props.user.state.pending) return null
 
     return (

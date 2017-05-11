@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { browserHistory, Link } from 'react-router'
-import user from 'lib/user/user'
-import config from 'lib/config'
-import checkReservedNames from 'lib/forum/check-reserved-names'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import Footer from 'ext/lib/site/footer/component'
@@ -11,38 +8,27 @@ import TopicCard from './topic-card/component'
 export default class HomeForum extends Component {
   constructor (props) {
     super(props)
+
     this.state = {
-      loading: null,
-      topics: null,
-      forum: null
+      forum: null,
+      topics: []
     }
   }
 
-  componentWillMount () {
-    if (!config.multiForum && !config.defaultForum) {
-      window.location = '/forums/new'
-    }
-
-    if (config.visibility === 'hidden' && !user.logged()) {
-      browserHistory.push('/signin')
-    }
-
-    let name = this.props.params.forum
-
-    if (!name && !config.multiForum) name = config.defaultForum
-
-    checkReservedNames(name)
-
-    this.setState({ loading: true })
+  componentDidMount () {
+    const name = this.props.params.forum
 
     forumStore.findOneByName(name)
-      .then((forum) => Promise.all([
-        forum,
-        topicStore.findAll({ forum: forum.id })
-      ]))
+      .then((forum) => {
+        this.setState({ forum })
+
+        return Promise.all([
+          forum,
+          topicStore.findAll({ forum: forum.id })
+        ])
+      })
       .then(([forum, topics]) => {
         this.setState({
-          loading: false,
           forum,
           topics
         })
