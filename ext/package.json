@@ -12,6 +12,6 @@
     "lib/config": "lib/config/config"
   },
   "dependencies": {
-    "argob-poncho": "~0.3.2"
+    "argob-poncho": "0.3.2"
   }
 }

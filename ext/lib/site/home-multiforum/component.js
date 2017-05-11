@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import t from 't-component'
 import debug from 'debug'
 import userConnector from 'lib/site/connectors/user'
 import forumStore from 'lib/stores/forum-store/forum-store'
+import Footer from 'ext/lib/site/footer/component'
 
 const log = debug('democracyos:home-multiforum')
 
@@ -65,7 +65,7 @@ class HomeMultiForum extends Component {
     return (
       <div className='ext-site-home-multiforum'>
         <section
-          className='jumbotron ext-site-home-multiforum-cover'
+          className='cover jumbotron'
           style={{
             backgroundImage: `url('https://cldup.com/8D9kbn12Nn.jpg')`
           }}>
@@ -108,6 +108,7 @@ class HomeMultiForum extends Component {
             </Link>
           ))}
         </div>
+        <Footer />
       </div>
     )
   }
