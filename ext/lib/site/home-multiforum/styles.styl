@@ -1,21 +1,27 @@
-#home-multiforum
-  @import './forum-card/styles'
-  @import 'forum-card/styles'
-
+.ext-site-home-multiforum
   background: transparent
 
-  #forum-list
-    width: 100%
+  .forums-list
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    padding-top: 4em
 
-  .forum-info
-    .content
-      text-align: center
+    .forums-list-item
+      max-width: 100%
+      width: 100%
+      margin: 0 10px 20px
 
-      a
-        margin-top 20px
+      @media (min-width: 992px)
+        width: 440px
 
-    .cover
-      background-image: unquote("linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url('https://consultapublica.argentina.gob.ar/homepage/cover.jpg')!important")
+  .ext-site-home-multiforum-cover
+    text-align: center
 
-  .admin
-    width: 100%
+    h1
+      max-width: 500px
+      margin: 0 auto .3em
+
+    .jumbotron_body
+      background-color: rgba(#000, .5)
