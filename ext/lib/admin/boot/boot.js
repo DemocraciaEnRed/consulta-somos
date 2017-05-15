@@ -1,2 +1,3 @@
 import 'ext/lib/boot/overrides'
-import 'lib/admin/boot/boot'
+require('ext/lib/boot/routes')()
+require('lib/admin/boot/boot')
