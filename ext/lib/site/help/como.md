@@ -1,4 +1,4 @@
-## ¿Cómo Funciona?
+# ¿Cómo Funciona?
 
 Acá podes ver o descargar un manual de usuario que explica las funcionalidades básicas de la Plataforma de Consulta Pública.
 <br>

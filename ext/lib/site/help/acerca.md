@@ -1,4 +1,4 @@
-## Acerca de este sitio
+# Acerca de este sitio
 
 Consulta Pública es un nuevo canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad promoviendo la participación ciudadana y el fortalecimiento de la democracia.
 

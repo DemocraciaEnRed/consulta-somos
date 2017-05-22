@@ -1,4 +1,4 @@
-## Políticas de privacidad
+# Políticas de privacidad
 ​
 La recolección y tratamiento automatizado de los datos personales tiene como finalidad el buen y fluido mantenimiento de la relación establecida entre el Usuario y el Administrador. Por su parte, el Sitio Web solamente podrá ceder los datos de los Usuarios a las entidades dependientes y/o bajo el control del Ministerio de Modernización con fines estadísticos o ante el requerimiento de la justicia competente.
 
