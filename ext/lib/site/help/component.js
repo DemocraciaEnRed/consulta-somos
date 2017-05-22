@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router'
 import t from 't-component'
 import Footer from 'ext/lib/site/footer/component'
 import Sidebar from 'ext/lib/site/help/sidebar/component'
 import MarkdownGuide from 'lib/site/help/md-guide/component'
 
-export default class HelpLayout extends Component {
+export default class HelpLayout extends PureComponent {
   articles = [
     {
       title: '¿Cómo funciona?',
