@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import t from 't-component'
+import Footer from 'ext/lib/site/footer/component'
 import Sidebar from 'ext/lib/site/help/sidebar/component'
 import MarkdownGuide from 'lib/site/help/md-guide/component'
 
@@ -43,30 +44,33 @@ export default class HelpLayout extends Component {
     const active = this.articles.find((art) => art.slug === article)
 
     return (
-      <div className='help-container container'>
-        <ol className='breadcrumb'>
-          <li className='breadcrumb-item'>
-            <Link to='/'>Consultas</Link>
-          </li>
-          <li className='breadcrumb-item active'>
-            <Link to='/ayuda'>Ayuda</Link>
-          </li>
-          <li className='breadcrumb-item active'>
-            <span>{active.title}</span>
-          </li>
-        </ol>
-        <section>
-          <div className='row'>
-            <aside className='col-md-4'>
-              <Sidebar
-                activeSlug={active.slug}
-                articles={this.articles} />
-            </aside>
-            <aricle className='help-content col-md-8'>
-              <active.Content />
-            </aricle>
-          </div>
-        </section>
+      <div>
+        <div className='help-container container'>
+          <ol className='breadcrumb'>
+            <li className='breadcrumb-item'>
+              <Link to='/'>Consultas</Link>
+            </li>
+            <li className='breadcrumb-item active'>
+              <Link to='/ayuda'>Ayuda</Link>
+            </li>
+            <li className='breadcrumb-item active'>
+              <span>{active.title}</span>
+            </li>
+          </ol>
+          <section>
+            <div className='row'>
+              <aside className='col-md-4'>
+                <Sidebar
+                  activeSlug={active.slug}
+                  articles={this.articles} />
+              </aside>
+              <aricle className='help-content col-md-8'>
+                <active.Content />
+              </aricle>
+            </div>
+          </section>
+        </div>
+        <Footer />
       </div>
     )
   }
