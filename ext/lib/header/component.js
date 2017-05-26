@@ -54,17 +54,12 @@ class Header extends Component {
   }
 
   render () {
-    const styles = {
-      color: config.headerFontColor,
-      backgroundColor: config.headerBackgroundColor
-    }
-
     const classes = ['header ext-header']
 
     if (config.headerContrast) classes.push('with-contrast')
 
     return (
-      <header className={classes.join(' ')} style={styles}>
+      <header className={classes.join(' ')}>
         <div className='container header-items-wrapper'>
           {
             this.state.showToggleSidebar &&
