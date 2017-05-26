@@ -19,7 +19,10 @@ t.en = t.es
 const templates = {}
 
 ;[
-  'welcome-email'
+  // 'comment-reply',
+  // 'reset-password',
+  // 'topic-published',
+  // 'welcome-email'
 ].forEach(function (name) {
   var filePath = path.join(__dirname, './templates/' + name + '.pug')
 
@@ -29,12 +32,20 @@ const templates = {}
   })
 })
 
+const originalPug = notifierTemplates.pug
+
 function _pug (opts, vars, callback) {
-  if (typeof opts === 'string') return _pug({ name: opts }, vars, callback)
+  if (typeof opts === 'string') {
+    return _pug({ name: opts }, vars, callback)
+  }
 
-  if (config.enforceLocale) opts.lang = config.locale
+  if (config.enforceLocale) {
+    opts.lang = config.locale
+  }
 
-  if (!templates[opts.name]) return callback(new Error('Template file not found.'))
+  if (!templates[opts.name]) {
+    return originalPug(opts, vars, callback)
+  }
 
   const content = replaceVars(templates[opts.name]({ t: t }), vars)
 

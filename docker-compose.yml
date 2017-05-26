@@ -3,7 +3,6 @@ version: '3'
 services:
   app:
     container_name: consultapublica
-    image: datosgobar/democracyos
     build: .
     command: ["./node_modules/.bin/gulp", "bws"]
     environment:
