@@ -1,26 +1,22 @@
-FROM node:6
+FROM democracyos/democracyos:2.5.0
 
-MAINTAINER Guido Vilariño <guido@democracyos.org>
+MAINTAINER Matías Lescano <matias@democraciaenred.org>
 
-RUN npm config set python python2.7
-
-COPY ["package.json", "/usr/src/"]
-
-WORKDIR /usr/src
-
-RUN npm install --quiet --production
-
-COPY [".", "/usr/src/"]
-
-ONBUILD COPY ["ext", "ext"]
-
-ONBUILD RUN bin/dos-ext-install --quiet --production
-
-ENV NODE_ENV=production \
-    NODE_PATH=/usr/src
-
-RUN npm run build -- --minify
-
-EXPOSE 3000
-
-CMD ["node", "."]
+ENV LOCALE=es \
+  AVAILABLE_LOCALES=es,en \
+  ENFORCE_LOCALE=true \
+  MODERATOR_ENABLED=true \
+  MULTI_FORUM=true \
+  RESTRICT_FORUM_CREATION=true \
+  FAVICON=/boot/favicon-gob.ico \
+  LOGO=https://cldup.com/_ZriYFdZN4.svg \
+  LOGO_MOBILE=https://cldup.com/_ZriYFdZN4.svg \
+  NOTIFICATIONS_MAILER_EMAIL=gobiernoabierto@modernizacion.gob.ar \
+  NOTIFICATIONS_MAILER_NAME='Consulta Pública Argentina' \
+  ORGANIZATION_EMAIL=gobiernoabierto@modernizacion.gob.ar \
+  ORGANIZATION_NAME='Consulta Pública Argentina' \
+  SOCIALSHARE_SITE_NAME='Consulta Pública Argentina' \
+  SOCIALSHARE_IMAGE=https://cldup.com/quswAMk9Ns.png \
+  SOCIALSHARE_DOMAIN=consultapublica.argentina.gob.ar \
+  SOCIALSHARE_TWITTER_USERNAME=@ModernizacionAR \
+  TWEET_TEXT='Estoy tratando de mejorar esta propuesta “{topic.mediaTitle}” ¡Participá vos también! #GobiernoAbierto'
