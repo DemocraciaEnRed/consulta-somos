@@ -37,4 +37,20 @@ docker exec -it dos bash
 * Todas las vistas personalizadas para Consulta Pública se encuentran en [`/ext`](ext). Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
 
 ## Corriendo en Producción
+
 Usar de referencia el repositorio [DemocracyOS/onpremises](https://github.com/DemocracyOS/onpremises). Utiliza Ansible para el aprovisionamiento, y Docker Compose para correr el servidor.
+
+### Imagen de Docker
+
+La imagen se encuentra en: https://hub.docker.com/r/datosgobar/democracyos/
+
+Para buildear la imagen:
+* `docker build . -t datosgobar/democracyos:latest`
+
+Para subir la imagen:
+* `docker push datosgobar/democracyos:latest`
+
+Todo junto:
+```
+docker build . -t datosgobar/democracyos:latest && docker push datosgobar/democracyos:latest
+```
