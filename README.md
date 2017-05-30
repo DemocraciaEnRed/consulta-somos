@@ -32,9 +32,9 @@ docker exec -it dos bash
 
 * El archivo `docker-compose.override.yml` se encuentra en el `.gitignore` para estar seguros de no subir cualquier información sensible al repo, como keys, etc.
 * Si querés saber más sobre `docker-compose`, acá está toda la documentación: https://docs.docker.com/compose/
-* En el archivo `docker-compose.override.yml` podes todas las opciones listadas acá: http://docs.democracyos.org/configuration.html
-* El puerto `27017` se encuentra expuesto para que puedas administrar la base de datos con algún cliente de MongoDB como [Robomongo](https://robomongo.org/).
-* Todas las vistas personalizadas para Consulta Pública se encuentran en `/ext`. Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
+* En el archivo `docker-compose.override.yml` podes configurar DemocracyOS con cualquiera de las variables de entorno listadas acá: http://docs.democracyos.org/configuration.html
+* El puerto `27017` está expuesto para que puedas administrar la base de datos con algún cliente de MongoDB, por ejemplo con [Robomongo](https://robomongo.org/).
+* Todas las vistas personalizadas para Consulta Pública se encuentran en [`/ext`](ext). Siguiendo el mismo patrón de carpetas que [DemocracyOS/democracyos](https://github.com/DemocracyOS/democracyos).
 
 ## Corriendo en Producción
 Usar de referencia el repositorio [DemocracyOS/onpremises](https://github.com/DemocracyOS/onpremises). Utiliza Ansible para el aprovisionamiento, y Docker Compose para correr el servidor.
