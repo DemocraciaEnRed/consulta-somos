@@ -4,30 +4,31 @@ import t from 't-component'
 import Footer from 'ext/lib/site/footer/component'
 import Sidebar from 'ext/lib/site/help/sidebar/component'
 import MarkdownGuide from 'lib/site/help/md-guide/component'
+import * as articles from './articles'
 
 export default class HelpLayout extends PureComponent {
   articles = [
     {
       title: '¿Cómo funciona?',
-      Content: () => <Content content={require('./como.md')} />,
+      Content: () => <Content content={articles.como} />,
       slug: 'como-funciona',
       path: '/ayuda/como-funciona'
     },
     {
       title: 'Acerca de este sitio',
-      Content: () => <Content content={require('./acerca.md')} />,
+      Content: () => <Content content={articles.acerca} />,
       slug: 'acerca',
       path: '/ayuda/acerca'
     },
     {
       title: t('help.tos.title'),
-      Content: () => <Content content={require('./tos.md')} />,
+      Content: () => <Content content={articles.tos} />,
       slug: 'terminos-y-condiciones',
       path: '/ayuda/terminos-y-condiciones'
     },
     {
       title: t('help.pp.title'),
-      Content: () => <Content content={require('./pp.md')} />,
+      Content: () => <Content content={articles.pp} />,
       slug: 'privacidad',
       path: '/ayuda/privacidad'
     },
