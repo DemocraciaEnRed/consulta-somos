@@ -11,7 +11,7 @@ Fork de la plataforma [DemocracyOS](https://github.com/DemocracyOS/democracyos) 
 5. Navegá a [http://localhost:3000](http://localhost:3000)
 6. Registrate, entrá, y podés empezar a crear contenido en http://localhost:3000/ajustes/administrar
 
-### Commands
+### Comandos
 
 ```
 # Para abrir el server local
