@@ -4,7 +4,7 @@ Fork de la plataforma [DemocracyOS](https://github.com/DemocracyOS/democracyos) 
 
 ## Para empezar
 
-1. Asegurate tener instalado [Docker](https://www.docker.com/).
+1. Asegurate tener instalado [Docker 1.13.0+](https://www.docker.com/).
 2. Cloná este repositorio.
 3. Copiá el archivo `docker-compose.override.yml.example` a `docker-compose.override.yml`, y agregá tu mail en la variable `STAFF`. De este modo vas a poder administrar el contenido.
 4. Empezá el servidor con `docker-compose up --build` _(la primera vez puede llevar un ratito)_
