@@ -27,13 +27,13 @@ class HomeMultiForum extends Component {
         <section
           className='cover jumbotron'
           style={{
-            backgroundImage: `url('https://cldup.com/8D9kbn12Nn.jpg')`
+            backgroundImage: `url('https://cldup.com/CAT-P2nS7m.jpg')`
           }}>
           <div className='jumbotron_body'>
             <div className='container'>
-              <h1>¡El país lo hacés vos, es tu turno de hablar!</h1>
+              <h1>Tercer Plan de Acción de Gobierno Abierto</h1>
               <p className='lead'>
-                Entrá, comentá y debatí.
+                Consulta Pública de las metas que formarán parte del Tercer Plan de Acción de Gobierno Abierto
               </p>
               {this.props.user.state.rejected && (
                 <p>
@@ -43,7 +43,7 @@ class HomeMultiForum extends Component {
                       pathname: '/signin',
                       query: { ref: '/' }
                     }}>
-                    Participar
+                    Participá
                   </Link>
                 </p>
               )}
