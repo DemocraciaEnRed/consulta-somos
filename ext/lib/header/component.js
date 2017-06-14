@@ -86,7 +86,7 @@ class Header extends Component {
             {this.props.user.state.fulfilled && (
               <div className='header-item notifications-link'>
                 <Link
-                  to='/notifications'
+                  to='/notificaciones'
                   className='header-link'>
                   <span className='icon-bell' />
                 </Link>
