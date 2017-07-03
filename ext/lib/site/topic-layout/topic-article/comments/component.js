@@ -34,13 +34,14 @@ export class Comments extends Component {
             {t('comments.arguments')}
             <CommentsOrderBy onSort={this.props.handleSort} />
             {
-              // new Date(this.props.topic.closingAt) < new Date() &&
-              // (
-              //   <div className="alert alert-info" role="alert" style={{marginTop: '10px'}}>
-              //     <span className="icon-info" style={{marginRight: '5px'}}></span>
-              //     Los comentarios cerraron.
-              //   </div>
-              // )
+              new Date(this.props.topic.closingAt) < new Date() &&
+              (
+                <div className="alert alert-info" role="alert" style={{marginTop: '10px'}}>
+                  <span className="icon-info" style={{marginRight: '5px'}}></span>
+                  <span>La Consulta Pública de los compromisos que formarán parte del Tercer Plan de Acción de Gobierno Abierto ha finalizado.</span>
+                  <br /><span>Para seguir los avances del proceso podés ingresar a <a href='https://www.argentina.gob.ar/mesasogp'>https://www.argentina.gob.ar/mesasogp</a></span>
+                </div>
+              )
             }
           </h2>
           {
