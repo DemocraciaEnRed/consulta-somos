@@ -31,9 +31,9 @@ class HomeMultiForum extends Component {
           }}>
           <div className='jumbotron_body'>
             <div className='container'>
-              <h1>Tercer Plan de Acción de Gobierno Abierto</h1>
+              <h1>Bienvenido/a a #ConsultaPública</h1>
               <p className='lead'>
-                Consulta Pública de las metas que formarán parte del Tercer Plan de Acción de Gobierno Abierto
+                Construyamos una Argentina más abierta, transparente y colaborativa. Entrá, participá y debatí.   
               </p>
               {this.props.user.state.rejected && (
                 <p>
