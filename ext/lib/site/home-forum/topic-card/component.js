@@ -15,7 +15,7 @@ export default ({ topic }) => (
     <div className='panel-body'>
       <h3>{topic.mediaTitle}</h3>
       <p className='text-muted'>
-        {`${topic.participants.length} ${t('proposal-article.participant.plural')}`}
+        {/* {`${topic.action.count} ${t('proposal-article.participant.plural')}`} */}
       </p>
     </div>
   </Link>

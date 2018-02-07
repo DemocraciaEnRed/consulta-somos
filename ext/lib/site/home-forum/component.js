@@ -27,7 +27,7 @@ export default class HomeForum extends Component {
           topicStore.findAll({ forum: forum.id })
         ])
       })
-      .then(([forum, topics]) => {
+      .then(([forum, [ topics, pagination ]]) => {
         this.setState({
           forum,
           topics
