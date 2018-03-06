@@ -95,7 +95,7 @@ function getCsv (req, res, next) {
                   reply.createdAt,
                   `"${escapeTxt(reply.text)}"`,
                   `"${escapeTxt(reply.author.fullName)}"`,
-                  `"${usersRaw.find((u) => reply.author.id).email}"`
+                  `"${!reply.author.id ? '' : usersRaw.find((u) => reply.author.id).email}"`
                 ])
               })
             })
