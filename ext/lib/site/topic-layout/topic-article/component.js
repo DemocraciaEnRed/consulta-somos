@@ -6,14 +6,10 @@ import userConnector from 'lib/site/connectors/user'
 import Header from 'ext/lib/site/topic-layout/topic-article/header/component'
 import Content from 'lib/site/topic-layout/topic-article/content/component'
 import Footer from 'lib/site/topic-layout/topic-article/footer/component'
-import Social from './social/component'
-import Vote from 'lib/site/topic-layout/topic-article/vote/component'
-import Poll from 'lib/site/topic-layout/topic-article/poll/component'
-import Cause from 'lib/site/topic-layout/topic-article/cause/component'
-import Slider from 'lib/site/topic-layout/topic-article/slider/component'
+import Social from 'lib/site/topic-layout/topic-article/social/component'
 import AdminActions from 'lib/site/topic-layout/topic-article/admin-actions/component'
-import Hierarchy from 'lib/site/topic-layout/topic-article/hierarchy/component'
 import Comments from './comments/component'
+import TopicAction from './topic-action/component'
 
 
 class TopicArticle extends Component {
@@ -96,6 +92,11 @@ class TopicArticle extends Component {
           tags={topic.tags}
           forumName={forum.name}
           mediaTitle={topic.mediaTitle} />
+        { topic.action.method &&
+          <TopicAction
+            topic={topic}
+            question={'¿Qué te parece sarasa?'}/>
+        }
         {topic.clauses && <Content clauses={topic.clauses} />}
         {
           topic.links && (
@@ -106,6 +107,7 @@ class TopicArticle extends Component {
               title={topic.mediaTitle} />
           )
         }
+<<<<<<< 12e2a1308dd67cf39748ebed9f03f6a9fe1fc18f
     {   /*  {
           topic.action.method && topic.action.method === 'vote' && (
             <Vote topic={topic} />
@@ -139,6 +141,9 @@ class TopicArticle extends Component {
             </div>
           )
         } */ }
+=======
+        <Social topic={topic} />
+>>>>>>> Crea componente topic-action
         {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
