@@ -94,8 +94,7 @@ class TopicArticle extends Component {
           mediaTitle={topic.mediaTitle} />
         { topic.action.method &&
           <TopicAction
-            topic={topic}
-            question={'¿Qué te parece sarasa?'}/>
+            topic={topic} />
         }
         {topic.clauses && <Content clauses={topic.clauses} />}
         {

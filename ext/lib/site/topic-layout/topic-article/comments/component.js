@@ -26,7 +26,6 @@ export class Comments extends Component {
 
   render () {
     const { commentsFetch } = this.props
-
     return (
       <div className='topic-comments'>
         <div className='topic-article-content'>
@@ -47,6 +46,7 @@ export class Comments extends Component {
           {
             new Date(this.props.topic.closingAt) >= new Date() &&
             <CommentsForm
+              topic={this.props.topic}
               forum={this.props.forum}
               onSubmit={this.props.handleCreate}
               commentsCreating={this.props.commentsCreating} />
