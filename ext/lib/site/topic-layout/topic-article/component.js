@@ -3,10 +3,10 @@ import bus from 'bus'
 import t from 't-component'
 import urlBuilder from 'lib/url-builder'
 import userConnector from 'lib/site/connectors/user'
-import Header from 'lib/site/topic-layout/topic-article/header/component'
+import Header from 'ext/lib/site/topic-layout/topic-article/header/component'
 import Content from 'lib/site/topic-layout/topic-article/content/component'
 import Footer from 'lib/site/topic-layout/topic-article/footer/component'
-import Social from 'lib/site/topic-layout/topic-article/social/component'
+import Social from './social/component'
 import Vote from 'lib/site/topic-layout/topic-article/vote/component'
 import Poll from 'lib/site/topic-layout/topic-article/poll/component'
 import Cause from 'lib/site/topic-layout/topic-article/cause/component'
@@ -78,11 +78,16 @@ class TopicArticle extends Component {
 
     return (
       <div className='topic-article-wrapper'>
+        <Social topic={topic} />
+        
+        <div className='secondary-wrapper'>
+
         {
           this.state.showSidebar &&
             <div onClick={hideSidebar} className='topic-overlay' />
         }
         <AdminActions forum={forum} topic={topic} />
+
         <Header
           closingAt={topic.closingAt}
           closed={topic.closed}
@@ -101,7 +106,7 @@ class TopicArticle extends Component {
               title={topic.mediaTitle} />
           )
         }
-        {
+    {   /*  {
           topic.action.method && topic.action.method === 'vote' && (
             <Vote topic={topic} />
           )
@@ -133,12 +138,13 @@ class TopicArticle extends Component {
               <Hierarchy topic={topic} />
             </div>
           )
-        }
-        <Social topic={topic} />
+        } */ }
         {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
       </div>
+  </div>
+
     )
   }
 }

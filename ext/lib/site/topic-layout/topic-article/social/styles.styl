@@ -1,0 +1,58 @@
+.topic-social
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  margin: 32px 30px 20px 0
+  width: 10%
+  max-height: 80px
+  @media (max-width: 991px)
+    justify-content: space-between
+    margin: 0
+    width:100%
+
+
+
+  .participants-box
+    padding-top: 3px
+
+    span
+      display: inline-block
+      font-size: 14px
+      color: #666
+      margin-right: 5px
+      margin-bottom: 5px
+      font-weight:200
+
+    .participant-profile
+      .avatar
+        width: 20px
+        height: 20px
+        border-radius: 50%
+
+    .view-more
+      display: inline-block
+      cursor: pointer
+
+  .share-links
+    min-width: 72px
+
+
+    a
+      background: #666
+      padding: 8px 5px
+      margin-left: 0px
+      margin-right: 10px
+      border-radius: 2px
+      color: white
+      display: inline-block
+      line-height: 10px
+      transition: all .3s ease-in-out
+
+      &:hover
+        text-decoration: none
+
+      &.icon-social-facebook:hover
+        background-color: #3b5998
+
+      &.icon-social-twitter:hover
+        background-color: #3498db
