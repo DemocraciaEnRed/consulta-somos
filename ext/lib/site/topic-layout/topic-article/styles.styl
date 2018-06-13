@@ -1,11 +1,20 @@
+@import './header/styles.styl'
+@import './social/styles.styl'
+
+.secondary-wrapper
+  flex-direction: column
+
 .topic-article-wrapper
   position: relative
   margin-left: auto
   margin-right: auto
   padding: 40px 20px 20px
   max-width: 100%
-  width: 100%
   background-color: #f9f9f9
+  @media (min-width: 991px)
+    display: flex
+    flex-direction: row
+
 
   @media (min-width: 544px)
     padding-top: 60px
@@ -28,10 +37,11 @@
     font-family: inherit
     font-weight: 300
     max-width: 100%
-    width: 100%
     padding-left: 0
     padding-right: 0
     color: #111
+    span
+      font-weight:600
 
   .topic-comments
     border: none
