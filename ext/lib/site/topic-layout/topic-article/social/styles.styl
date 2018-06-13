@@ -2,8 +2,8 @@
   display: flex
   flex-direction: column
   align-items: flex-start
-  margin: 32px 30px 20px 0
-  width: 10%
+  margin: 32px 20px 20px 0
+  width: 15%
   max-height: 80px
   @media (max-width: 991px)
     justify-content: space-between
@@ -14,14 +14,14 @@
 
   .participants-box
     padding-top: 3px
-
+    min-width:95px
     span
       display: inline-block
       font-size: 14px
       color: #666
       margin-right: 5px
       margin-bottom: 5px
-      font-weight:200
+      font-weight:100 !important
 
     .participant-profile
       .avatar
@@ -47,6 +47,11 @@
       display: inline-block
       line-height: 10px
       transition: all .3s ease-in-out
+      background-color: #959595
+      @media (min-width: 991px)
+        &:first-child
+          margin-right:60px
+          margin-bottom:10px
 
       &:hover
         text-decoration: none
