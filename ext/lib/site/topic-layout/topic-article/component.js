@@ -3,13 +3,13 @@ import bus from 'bus'
 import t from 't-component'
 import urlBuilder from 'lib/url-builder'
 import userConnector from 'lib/site/connectors/user'
-import Header from 'ext/lib/site/topic-layout/topic-article/header/component'
 import Content from 'lib/site/topic-layout/topic-article/content/component'
 import Footer from 'lib/site/topic-layout/topic-article/footer/component'
-import Social from 'lib/site/topic-layout/topic-article/social/component'
 import AdminActions from 'lib/site/topic-layout/topic-article/admin-actions/component'
+import Social from './social/component'
 import Comments from './comments/component'
 import TopicAction from './topic-action/component'
+import Header from './header/component'
 
 
 class TopicArticle extends Component {
@@ -106,43 +106,7 @@ class TopicArticle extends Component {
               title={topic.mediaTitle} />
           )
         }
-<<<<<<< 12e2a1308dd67cf39748ebed9f03f6a9fe1fc18f
-    {   /*  {
-          topic.action.method && topic.action.method === 'vote' && (
-            <Vote topic={topic} />
-          )
-        }
-        {
-          topic.action.method && topic.action.method === 'poll' && (
-            <div className='topic-article-content'>
-              <Poll topic={topic} />
-            </div>
-          )
-        }
-        {
-          topic.action.method && topic.action.method === 'cause' && (
-            <div className='topic-article-content'>
-              <Cause topic={topic} />
-            </div>
-          )
-        }
-        {
-          topic.action.method && topic.action.method === 'slider' && (
-            <div className='topic-article-content'>
-              <Slider topic={topic} />
-            </div>
-          )
-        }
-        {
-          topic.action.method && topic.action.method === 'hierarchy' && (
-            <div className='topic-article-content'>
-              <Hierarchy topic={topic} />
-            </div>
-          )
-        } */ }
-=======
-        <Social topic={topic} />
->>>>>>> Crea componente topic-action
+
         {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
