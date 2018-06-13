@@ -2,6 +2,25 @@
   background-color: #FFF
   box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.51)
   padding: 26px 57 23px
+  .topic-action-voted
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin-top: 32px
+    margin-bottom: 42px
+    p
+      margin-bottom: 5px
+      color: #707070
+      font-size: 20px
+    span
+      font-weight: 500 
+      font-size: 20px
+      color: #000
+      &.option
+        color: #3995D6
+        margin-left: 5px
+
   .topic-action-title
     font-size: 26px
     font-family: 'Roboto', sans-serif
@@ -11,18 +30,30 @@
     line-height: 32px
   .topics-poll
     .poll-options
+      display: flex
+      flex-wrap: wrap
+      flex-direction: column
+      .btn-primary
+        margin-top: 20px
+        background-color: #3995D6
+        align-self: center
+        width: 102px
       .poll-btn
         color: #707070
         text-transform: none
         font-size: 18px
         padding-left: 0
-        display: flex
-        align-items: center
         flex-wrap: wrap
-        .circle
-          position: static
         .poll-option-label
           margin-left: 10px
           font-weight: 300
-      .btn-primary
-        background-color: #3995D6
+          position: absolute
+          top: 7
+          left: 25
+        .icon-check
+          background-color: #3995D6
+        .icon-check::before
+          content: ''
+        
+
+      
