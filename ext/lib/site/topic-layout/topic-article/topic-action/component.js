@@ -34,5 +34,10 @@ export default ({ topic }) => (
           return <Hierarchy topic={topic} />
         }
     })()}
+    {topic.closed &&
+      <div className='action-count'>
+        <span>{topic.action.count} participantes</span>
+      </div>
+    }
   </div>
 )
