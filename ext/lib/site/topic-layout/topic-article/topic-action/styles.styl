@@ -28,6 +28,25 @@
     text-align: left
     color: #000
     line-height: 32px
+  
+  .action-count
+    display: flex
+    justify-content: center
+    align-items: center
+    .participantes
+      width: 30px
+      height: 25px
+      background-image: unquote("url('ext/lib/site/topic-layout/users.svg')")
+      background-size: contain
+      background-repeat: no-repeat
+    span 
+      font-family: 'Roboto', sans-serif
+      font-weight: 400
+      font-size: 16px
+      line-height: 19px
+      &.number
+        font-size: 18px
+        margin: 0 5px
   @import './topic-poll/styles.styl'
   @import './topic-range/styles.styl'
   @import './topic-hierarchy/styles.styl'

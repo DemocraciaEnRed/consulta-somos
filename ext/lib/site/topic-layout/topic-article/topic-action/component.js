@@ -36,7 +36,9 @@ export default ({ topic }) => (
     })()}
     {topic.closed &&
       <div className='action-count'>
-        <span>{topic.action.count} participantes</span>
+        <div className='participantes' />
+        <span className='number'>{topic.action.count}</span>
+        <span>participantes</span>
       </div>
     }
   </div>
