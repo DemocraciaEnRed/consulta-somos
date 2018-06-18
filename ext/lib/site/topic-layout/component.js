@@ -73,9 +73,8 @@ class TopicLayout extends Component {
         {this.state.forum && this.state.topic && (
           <TopicArticle topic={this.state.topic} forum={this.state.forum} />
         )}
-        {this.state.forum && (
-       <Carrusel forum={this.state.forum}/>
-      )}
+        
+       <Carrusel/>
         <Footer />
       </div>
     )

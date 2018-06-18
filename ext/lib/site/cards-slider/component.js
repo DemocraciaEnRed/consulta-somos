@@ -1,26 +1,23 @@
 import React, { Component } from 'react'
-import { browserHistory, Link } from 'react-router'
-import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
-import Footer from 'ext/lib/site/footer/component'
+import forumStore from 'lib/stores/forum-store/forum-store'
 import TopicCard from './topic-card/component'
+import { Link, browserHistory } from 'react-router'
 
-export default class HomeForum extends Component {
+export default class Carrusel extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       forum: null,
       topics: []
     }
   }
-
   componentDidMount () {
-    const name = this.props.params.forum
+    const name = 'innovacion'
 
     forumStore.findOneByName(name)
       .then((forum) => {
-        this.setState({ forum })
+        this.setState({ forum }), () => console.log(forum)
 
         return Promise.all([
           forum,
@@ -35,7 +32,7 @@ export default class HomeForum extends Component {
       })
       .catch((err) => {
         if (err.status === 404) browserHistory.push('/404')
-        if (err.status === 401) browserHistory.push('/401')
+       //c if (err.status === 401) browserHistory.push('/401')
         throw err
       })
   }
@@ -44,15 +41,19 @@ export default class HomeForum extends Component {
     if (!this.state.forum) return null
 
     const { forum } = this.state
-
     return (
-      <div className='ext-forum-home'>
-      
+      <div className='seccion-proyectos container-fluid'>
+        <div className="fondo-titulo">
+          <h2 className='title'>Otros ejes de esta consulta</h2>
+        </div>
+        <div ref='carrusel'>
         <div className='topics-container'>
           {this.state.topics.map((topic) => (
             <TopicCard key={topic.id} topic={topic} />
           ))}
         </div>
+        </div>
+     
       </div>
     )
   }
