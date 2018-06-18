@@ -5,6 +5,7 @@ import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import userConnector from 'lib/site/connectors/user'
 import TopicArticle from './topic-article/component'
+import Carrusel from 'ext/lib/site/cards-slider/component'
 import Footer from 'ext/lib/site/footer/component'
 
 class TopicLayout extends Component {
@@ -72,6 +73,9 @@ class TopicLayout extends Component {
         {this.state.forum && this.state.topic && (
           <TopicArticle topic={this.state.topic} forum={this.state.forum} />
         )}
+        {this.state.forum && (
+       <Carrusel forum={this.state.forum}/>
+      )}
         <Footer />
       </div>
     )
