@@ -95,36 +95,51 @@ const content = [
 
 
 export default class extends Component {
-  render () {
-    function createClauses (clauses) {
-      return {
-        __html: clauses
-          .sort(function (a, b) {
-            return a.position > b.position ? 1 : -1
-          })
-          .map(function (clause) {
-            return clause.markup
-          })
-          .join('')
-          .replace(/<a/g, '<a rel="noopener noreferer" target="_blank"')
-      }
-    }
+  state = {
+    expanded: false
+  }
 
+  createClauses = (clauses) => {
+    clauses
+      .sort((a, b) => {
+        return a.position > b.position ? 1 : -1
+      })
+    if (!this.state.expanded && clauses.length > 8) clauses = [... clauses].slice(0, 8)
+    return {
+      __html: clauses
+        .map(function (clause) {
+          return clause.markup
+        })
+        .join('')
+        .replace(/<a/g, '<a rel="noopener noreferer" target="_blank"')
+    }
+  }
+
+  expandText = () => {
+    this.setState((prevState) => (
+      { expanded: !prevState.expanded }
+    ), () => console.log(this.state.expanded))
+  }
+
+  render () {
     return (
       <div className='container forum-description'>
         <div className='row'>
           <div
             className='col-md-12 content'
-            dangerouslySetInnerHTML={createClauses(content)} />
+            dangerouslySetInnerHTML={this.createClauses(content)} />
         </div>
-        <div className='row'>
-          <div className='col-md-12 text-center button-container'>
-            <button
-              className='btn bg-white text-secondary' >
-              Leer más información sobre la consulta
-            </button>
+        {content.length > 8 && 
+          <div className='row'>
+            <div className={`col-md-12 text-center button-container ${!this.state.expanded ? 'see-more' : ''}`}>
+              <a
+                onClick={this.expandText}
+                className='bg-white text-secondary' >
+                {!this.state.expanded ? 'Leer más información sobre la consulta' : 'Leer menos'}
+              </a>
+            </div>
           </div>
-        </div>
+        }
       </div>
     )
   }
