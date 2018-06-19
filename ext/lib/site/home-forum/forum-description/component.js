@@ -117,6 +117,14 @@ export default class extends Component {
             className='col-md-12 content'
             dangerouslySetInnerHTML={createClauses(content)} />
         </div>
+        <div className='row'>
+          <div className='col-md-12 text-center button-container'>
+            <button
+              className='btn bg-white text-secondary' >
+              Leer más información sobre la consulta
+            </button>
+          </div>
+        </div>
       </div>
     )
   }
