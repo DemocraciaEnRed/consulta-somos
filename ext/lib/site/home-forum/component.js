@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import { browserHistory, Link } from 'react-router'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
@@ -17,7 +18,6 @@ export default class HomeForum extends Component {
 
   componentDidMount () {
     const name = this.props.params.forum
-
     forumStore.findOneByName(name)
       .then((forum) => {
         this.setState({ forum })
@@ -40,6 +40,11 @@ export default class HomeForum extends Component {
       })
   }
 
+  handleScroll = () => {
+    const scrollNode = ReactDOM.findDOMNode(this.refs.anchor)
+    window.scrollTo(0, scrollNode.offsetTop)
+  }
+
   render () {
     if (!this.state.forum) return null
 
@@ -55,7 +60,9 @@ export default class HomeForum extends Component {
           <div className='jumbotron_body'>
             <div className='container'>
               <h1>{forum.title}</h1>
-              <a className='btn btn-primary'>
+              <a
+                className='btn btn-primary'
+                onClick={this.handleScroll} >
                 Elegí un eje y participá
               </a>
             </div>
@@ -80,7 +87,7 @@ export default class HomeForum extends Component {
         <div className='summary-container'>
           {forum.summary}
         </div>
-        <div className='container topics-container'>
+        <div className='container topics-container' ref='anchor' >
           {this.state.topics.length > 0 &&
             <h5>{this.state.topics.length} ejes comprenden esta consulta</h5>
           }
