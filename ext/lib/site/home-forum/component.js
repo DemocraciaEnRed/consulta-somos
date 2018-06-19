@@ -5,6 +5,7 @@ import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import Footer from 'ext/lib/site/footer/component'
 import TopicCard from './topic-card/component'
+import ForumDescription from './forum-description/component'
 
 export default class HomeForum extends Component {
   constructor (props) {
@@ -84,9 +85,13 @@ export default class HomeForum extends Component {
             </div>
           </div>
         </section>
-        <div className='summary-container'>
-          {forum.summary}
-        </div>
+        <ForumDescription />
+        {
+        // 
+        // <div className='summary-container'>
+        //  {forum.summary}
+        // </div>
+        }
         <div className='container topics-container' ref='anchor' >
           {this.state.topics.length > 0 &&
             <h5>{this.state.topics.length} ejes comprenden esta consulta</h5>
