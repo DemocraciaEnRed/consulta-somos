@@ -3,8 +3,14 @@
     text-align: center
 
     h1
-      max-width: 500px
       margin: 0 auto .3em
+
+    .btn.btn-primary
+      margin-top: 3em
+
+  .jumbotron
+    .jumbotron-bar
+      background: #302F2F
 
   .topics-container
     display: flex
@@ -12,6 +18,35 @@
     flex-wrap: wrap
     justify-content: center
     padding-top: 4em
+
+    h5
+      font-weight: 500
+      font-size: 25px
+      line-height: 30px
+      text-transform: uppercase
+      margin-bottom: 43px
+      position: relative
+      text-align: center
+    h5:before
+      content: ''
+      width: 600px
+      height: 1px
+      position: absolute
+      border-top: 1px solid #707070
+      background-color: #707070
+      top: -24
+      left: -70
+      @media (max-width: 767px)
+        width: 100%
+        left: 0
+
+  .topics-card-wrapper
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    @media (max-width: 767px)
+      justify-content: center
 
   .topic-card
     max-width: 100%

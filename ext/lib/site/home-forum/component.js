@@ -52,6 +52,14 @@ export default class HomeForum extends Component {
           style={(forum.coverUrl && {
             backgroundImage: 'linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url("' + forum.coverUrl + '")'
           }) || null}>
+          <div className='jumbotron_body'>
+            <div className='container'>
+              <h1>{forum.title}</h1>
+              <a className='btn btn-primary'>
+                Elegí un eje y participá
+              </a>
+            </div>
+          </div>
           <div className='jumbotron_bar'>
             <div className='container'>
               <div className='row'>
@@ -68,17 +76,19 @@ export default class HomeForum extends Component {
               </div>
             </div>
           </div>
-          <div className='jumbotron_body'>
-            <div className='container'>
-              <h1>{forum.title}</h1>
-              <p className='lead'>{forum.summary}</p>
-            </div>
-          </div>
         </section>
-        <div className='topics-container'>
-          {this.state.topics.map((topic) => (
-            <TopicCard key={topic.id} topic={topic} />
-          ))}
+        <div className='summary-container'>
+          {forum.summary}
+        </div>
+        <div className='container topics-container'>
+          {this.state.topics.length > 0 &&
+            <h5>{this.state.topics.length} ejes comprenden esta consulta</h5>
+          }
+          <div className='topics-card-wrapper'>
+            {this.state.topics.map((topic) => (
+              <TopicCard key={topic.id} topic={topic} />
+            ))}
+          </div>
         </div>
         <Footer />
       </div>
