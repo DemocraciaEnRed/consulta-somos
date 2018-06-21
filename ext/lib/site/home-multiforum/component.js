@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import userConnector from 'lib/site/connectors/user'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import Footer from 'ext/lib/site/footer/component'
+import ForumCard from './forum-card/component'
 
 class HomeMultiForum extends Component {
   constructor (props) {
@@ -52,20 +53,7 @@ class HomeMultiForum extends Component {
         </section>
         <div className='container forums-list'>
           {this.state.forums.map((forum, key) => (
-            <Link
-              key={forum.id}
-              className='forums-list-item panel panel-default'
-              to={forum.url}>
-              {forum.coverUrl && (
-                <div className='panel-heading' style={{
-                  backgroundImage: `url('${forum.coverUrl}')`
-                }} />
-              )}
-              <div className='panel-body'>
-                <h3>{forum.title}</h3>
-                <p>{forum.summary}</p>
-              </div>
-            </Link>
+            <ForumCard forum={forum} key={key} />
           ))}
         </div>
         <Footer />
