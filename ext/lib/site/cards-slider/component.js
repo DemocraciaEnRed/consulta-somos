@@ -21,7 +21,7 @@ export default class Carrusel extends Component {
           topics = [...topics].filter((topic) => topic.id !== this.props.topic.id)
         }
         this.setState({
-          topics: topics
+          topics: topics.sort(() => 0.5 - Math.random())
         })
       })
       .catch((err) => console.error(err))
@@ -30,10 +30,10 @@ export default class Carrusel extends Component {
   componentDidUpdate () {
     if (this.flkty) this.flkty.destroy()
     const options = {
-      // cellAlign: 'center',
+      cellAlign: 'center',
       draggable: false,
       // friction: 0.2,
-      // contain: true,
+      contain: true,
       pageDots: false,
       wrapAround: true
     }
