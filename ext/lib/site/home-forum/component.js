@@ -85,12 +85,12 @@ export default class HomeForum extends Component {
             </div>
           </div>
         </section>
-        <ForumDescription />
-        {
-        // 
-        // <div className='summary-container'>
-        //  {forum.summary}
-        // </div>
+        { forum.richSummary ?
+          <ForumDescription content={forum.richSummary} />
+        :
+          <div className='summary-container'>
+            {forum.summary}
+          </div>
         }
         <div className='container topics-container' ref='anchor' >
           {this.state.topics.length > 0 &&
