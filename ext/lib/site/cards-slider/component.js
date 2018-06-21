@@ -16,7 +16,7 @@ export default class Carrusel extends Component {
     topicStore.findAll({ forum: this.props.forum.id })
       .then((res) => {
         let topics = res[0]
-        if (this.props.topic !== null) {
+        if (this.props.topic !== undefined) {
           // TODO: randomize topics
           topics = [...topics].filter((topic) => topic.id !== this.props.topic.id)
         }
@@ -47,16 +47,11 @@ export default class Carrusel extends Component {
   render () {
     if (!this.props.forum) return null
     return (
-      <div className='seccion-proyectos container-fluid'>
-        <div className="fondo-titulo">
-          <h2 className='title'>Otros ejes de esta consulta</h2>
-        </div>
         <div className='topics-container' ref='carrusel'>
           {this.state.topics.map((topic) => (
             <TopicCard key={topic.id} topic={topic}/>
           ))}
         </div>
-      </div>
     )
   }
 }
