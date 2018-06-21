@@ -2,6 +2,8 @@ import React from 'react'
 import t from 't-component'
 import { Link } from 'react-router'
 import topicStore from 'lib/stores/topic-store/topic-store'
+import Social from 'ext/lib/site/topic-layout/topic-article/social/component'
+import Timeago from 'lib/site/timeago'
 
 export default ({ topic }) => (
   <Link
@@ -12,11 +14,33 @@ export default ({ topic }) => (
       style={{
         backgroundImage: `url("${topicStore.getCoverUrl(topic)}")`
       }} />
+    <div className='topic-card-wrapper'>
+
+      { topic.closingAt &&
+        <p className='meta-information'>
+          <i className='icon-clock' />
+          <span className='time-ago-label'>
+            {(topic.closed ? t('common.closed') : t('common.close')) + ' '}
+          </span>
+          <Timeago className='meta-timeago' date={topic.closingAt} />
+        </p>
+      }
+
     <div className='panel-body'>
+   
       <h3>{topic.mediaTitle}</h3>
-      <p className='text-muted'>
+      
+    </div>
+     
+    <div className='topic-card-footer'>
+    <p className='text-muted'>
         {`${topic.commentersCount} ${t('proposal-article.participant.plural')}`}
       </p>
-    </div>
+      
+      <div className='social-links'>
+      <Social topic={topic}/>
+    </div> 
+    </div>    </div>
+
   </Link>
 )

@@ -31,7 +31,7 @@ export default class Carrusel extends Component {
     if (this.flkty) this.flkty.destroy()
     const options = {
       // cellAlign: 'center',
-      draggable: true,
+      draggable: false,
       // friction: 0.2,
       // contain: true,
       pageDots: false,
@@ -53,7 +53,7 @@ export default class Carrusel extends Component {
         </div>
         <div className='topics-container' ref='carrusel'>
           {this.state.topics.map((topic) => (
-            <TopicCard key={topic.id} topic={topic} />
+            <TopicCard key={topic.id} topic={topic}/>
           ))}
         </div>
       </div>
