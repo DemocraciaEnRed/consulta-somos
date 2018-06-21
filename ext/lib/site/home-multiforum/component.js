@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import userConnector from 'lib/site/connectors/user'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import Footer from 'ext/lib/site/footer/component'
+import ForumContainer from './forum-container/component'
 import ForumCard from './forum-card/component'
 
 class HomeMultiForum extends Component {
@@ -53,7 +54,7 @@ class HomeMultiForum extends Component {
         </section>
         <div className='container forums-list'>
           {this.state.forums.map((forum, key) => (
-            <ForumCard forum={forum} key={key} />
+            <ForumContainer forum={forum} key={key} />
           ))}
         </div>
         <Footer />
