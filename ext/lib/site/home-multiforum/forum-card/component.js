@@ -16,7 +16,7 @@ export default ({ forum }) => (
         <p className='forum-card-description'>{forum.summary}</p>
       </div>
       <div className='forum-card-footer'>
-        <Link to='/'>
+        <Link to={forum.url}>
           <button className='btn btn-link' >
             Ver más información
           </button>
