@@ -3,11 +3,16 @@
 
   .forums-list
     display: flex
-    flex-direction: row
+    flex-direction: column
     flex-wrap: wrap
-    justify-content: center
     padding-top: 4em
 
+    .forums-list-title
+      font-size: 35px
+      text-align: center
+      font-weight: 500
+      margin-bottom: 65px
+      
     .forums-list-item
       max-width: 100%
       width: 100%
@@ -25,3 +30,5 @@
 
     .jumbotron_body
       background-color: rgba(#000, .5)
+
+@import './forum-container/styles.styl'
