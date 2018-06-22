@@ -24,7 +24,7 @@ export default class extends Component {
   expandText = () => {
     this.setState((prevState) => (
       { expanded: !prevState.expanded }
-    ), () => console.log(this.state.expanded))
+    ))
   }
 
   render () {
