@@ -1,0 +1,54 @@
+.topic-article-content.topic-article-action
+  background-color: #FFF
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.51)
+  padding: 26px 57 23px
+  .topic-action-voted
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin-top: 32px
+    margin-bottom: 42px
+    p
+      margin-bottom: 5px
+      color: #707070
+      font-size: 20px
+    span
+      font-weight: 500 
+      font-size: 20px
+      color: #000
+      &.option
+        color: #3995D6
+        margin-left: 5px
+
+  .topic-action-title
+    font-size: 26px
+    font-family: 'Roboto', sans-serif
+    font-weight: 500
+    text-align: center
+    color: #000
+    line-height: 32px
+  
+  .action-count
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 30px 0
+    .participantes
+      width: 30px
+      height: 25px
+      background-image: unquote("url('ext/lib/site/topic-layout/users.svg')")
+      background-size: contain
+      background-repeat: no-repeat
+    span 
+      font-family: 'Roboto', sans-serif
+      font-weight: 400
+      font-size: 16px
+      line-height: 19px
+      &.number
+        font-size: 18px
+        margin: 0 5px
+  @import './topic-poll/styles.styl'
+  @import './topic-range/styles.styl'
+  @import './topic-hierarchy/styles.styl'
+      

@@ -1,6 +1,3 @@
-@import './header/styles.styl'
-@import './social/styles.styl'
-
 .secondary-wrapper
   flex-direction: column
 
@@ -46,3 +43,22 @@
   .topic-comments
     border: none
     background: none
+
+  @import './topic-action/styles.styl'
+  @import './header/styles.styl'
+  @import './social/styles.styl'
+  @import './topic-action/styles.styl'
+
+  .vote-options
+    margin-left: auto
+    margin-right: auto
+
+  button.btn.btn-primary
+    width:100%
+
+  .topics-hierarchy
+    h4
+      font-size:1.2em
+      padding:2em
+    ol
+      font-weight:100   

@@ -13,7 +13,7 @@ export default ({ topic }) => {
   return (
     <div className='topic-article-content topic-social'>
       <div className='participants-box'>
-        <span>{`${t('Compartir en redes sociales')}`}</span>
+        <span>Compartir en redes sociales</span>
       </div>
       <div className='share-links'>
         <a
