@@ -35,7 +35,13 @@ class HomeMultiForum extends Component {
             <div className='container'>
               <h1>Bienvenido/a a #ConsultaPública</h1>
               <p className='lead'>
-                Construyamos una Argentina más abierta, transparente y colaborativa. Entrá, participá y debatí.   
+                Construimos un canal de <span>diálogo y debate</span> de distintas propuestas.
+              </p>
+              <p className='lead'>
+                Ya sos parte de estas conversaciones, es tu turno de compartir tu opinión.
+              </p>
+              <p className='lead highlight'>
+                Construyamos una Argentina más abierta, más transparente y colaborativa.
               </p>
               {this.props.user.state.rejected && (
                 <p>
@@ -45,13 +51,29 @@ class HomeMultiForum extends Component {
                       pathname: '/signin',
                       query: { ref: '/' }
                     }}>
-                    Participá
+                    Quiero participar
                   </Link>
                 </p>
               )}
             </div>
           </div>
         </section>
+        <div className='lead-paragraph'>
+        <p>
+        Seguí estos pasos para participar y debatir en una forma más efectiva y colaborativa
+        </p>
+        </div>
+        <div className='section-icons col-md-8 offset-md-2'>
+        <div className='row'>
+        <div className='section-icon col-md-4 col-xs-12'><div className="fa-newspaper-o"></div><span>Informate</span> sobre las consultas</div>
+        <div className='section-icon col-md-4 col-xs-12'  ><div className="fa-group"></div><span>Participá</span> en los ejes de las consultas</div>
+        <div className='section-icon col-md-4 col-xs-12'><div className="fa-bullhorn"></div><span>Compartí</span> tu opinión</div>
+        </div>        </div>
+
+        <div className='lead-paragraph last'><p>Conocé las consultas publicadas</p></div>
+        <div className='arrow'><div className="arrow-down"></div></div>
+        
+
         <div className='container forums-list'>
           <h2 className='forums-list-title'>Consultas</h2>
           {this.state.forums.map((forum, key) => (
