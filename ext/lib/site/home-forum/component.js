@@ -4,7 +4,7 @@ import { browserHistory, Link } from 'react-router'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import Footer from 'ext/lib/site/footer/component'
-import TopicCard from './topic-card/component'
+import TopicCard from 'ext/lib/site/cards-slider/topic-card/component'
 import ForumDescription from './forum-description/component'
 
 export default class HomeForum extends Component {
