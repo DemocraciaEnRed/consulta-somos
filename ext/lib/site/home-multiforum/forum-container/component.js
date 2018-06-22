@@ -3,7 +3,7 @@ import CardsSlider from 'ext/lib/site/cards-slider/component'
 import ForumCard from '../forum-card/component'
 
 export default ({ forum }) => (
-  <div className='container forums-list'>
+  <div className='container'>
     <ForumCard forum={forum} />
     <div className='forum-slider-wrapper'>
       <h4 className='forum-slider-title'>Los ejes que comprenden esta consulta son:</h4>

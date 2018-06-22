@@ -2,6 +2,9 @@
   width: 100%
   display: flex
   flex-direction: row
+  position: relative
+  padding-top: 68px
+  padding-bottom: 68px
   .forum-card-img
     width: 50%
     img
@@ -36,3 +39,12 @@
     .forum-card-footer
       .btn.btn-link
         text-decoration: none !important
+
+  &:before
+    content: ''
+    width: 600px
+    height: 1px
+    border-top: 1px solid #707070
+    position: absolute
+    left: 25%
+    top: 0

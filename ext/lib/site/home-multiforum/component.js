@@ -53,6 +53,7 @@ class HomeMultiForum extends Component {
           </div>
         </section>
         <div className='container forums-list'>
+          <h2 className='forums-list-title'>Consultas</h2>
           {this.state.forums.map((forum, key) => (
             <ForumContainer forum={forum} key={key} />
           ))}

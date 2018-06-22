@@ -9,8 +9,10 @@ export default ({ forum }) => (
     <div className='forum-card-data'>
       <div className='forum-card-header'>
         <h3 className='forum-card-title'>{forum.title}</h3>
-        <span className='forum-card-author'>Autor:</span>
-        <span className='forum-card-author forum-card-name'>Juan Pérez</span>
+        {
+          // <span className='forum-card-author'>Autor:</span>
+          // <span className='forum-card-author forum-card-name'>Juan Pérez</span>
+        }
       </div>
       <div className='forum-card-body'>
         <p className='forum-card-description'>{forum.summary}</p>
