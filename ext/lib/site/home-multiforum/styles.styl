@@ -1,7 +1,8 @@
 @import '../../../node_modules/argob-poncho/dist/css/poncho.css'
-
+@import './forum-container/styles.styl'
 
 .jumbotron_body
+  padding-bottom: 20px
   .container
     .lead
       font-size:18px
@@ -16,13 +17,13 @@
     display: flex
     flex-direction: column
     flex-wrap: wrap
-    padding-top: 4em
+    padding-top: 1em
 
     .forums-list-title
       font-size: 35px
       text-align: center
       font-weight: 500
-      margin-bottom: 65px
+      margin-bottom: 20px
       
     .forums-list-item
       max-width: 100%
@@ -60,11 +61,13 @@
       margin-top:25px
 
   .lead-paragraph
-    margin-top:3em
+    margin-top:2em
     text-align:center
     font-size:20px
     &.last
       text-transform:uppercase
+      flex-direction:column
+      justify-content:center
   .arrow
     text-align:center
 
@@ -72,7 +75,7 @@
 
   .section-icons
     font-weight:600
-    margin-top:60px
+    margin-top:20px
     .section-icon
       display: flex
       flex-direction: column
@@ -95,4 +98,3 @@
     width:20px
     height:20px
 
-  @import './forum-container/styles.styl'
