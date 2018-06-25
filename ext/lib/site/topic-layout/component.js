@@ -11,7 +11,6 @@ import Footer from 'ext/lib/site/footer/component'
 class TopicLayout extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       forum: null,
       topic: null
@@ -32,6 +31,13 @@ class TopicLayout extends Component {
       if (err.status === 404) return browserHistory.push('/404')
       throw err
     })
+  }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.params.id !== this.props.params.id) {
+      topicStore.findOne(this.props.params.id)
+      .then((topic) => this.setState({ topic: topic }, () => window.scrollTo(0, 500)))
+    }
   }
 
   componentWillUnmount () {

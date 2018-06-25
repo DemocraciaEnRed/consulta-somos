@@ -17,7 +17,6 @@ export default class Carrusel extends Component {
       .then((res) => {
         let topics = res[0]
         if (this.props.topic !== undefined) {
-          // TODO: randomize topics
           topics = [...topics].filter((topic) => topic.id !== this.props.topic.id)
         }
         this.setState({
