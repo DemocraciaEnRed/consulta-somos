@@ -70,9 +70,10 @@ class HomeMultiForum extends Component {
         <div className='section-icon col-md-4 col-xs-12'><div className="fa-bullhorn"></div><span>Compartí</span> tu opinión</div>
         </div>        </div>
 
-        <div className='lead-paragraph last'><p>Conocé las consultas publicadas</p></div>
-        <div className='arrow'><div className="arrow-down"></div></div>
-        
+        <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
+          <p>Conocé las consultas publicadas</p>
+          <div className="arrow-down"></div>
+        </div>
 
         <div className='container forums-list'>
           <h2 className='forums-list-title'>Consultas</h2>
@@ -87,3 +88,5 @@ class HomeMultiForum extends Component {
 }
 
 export default userConnector(HomeMultiForum)
+
+
