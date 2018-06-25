@@ -88,3 +88,5 @@ class HomeMultiForum extends Component {
 }
 
 export default userConnector(HomeMultiForum)
+
+
