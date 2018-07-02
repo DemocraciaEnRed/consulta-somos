@@ -6,18 +6,10 @@ export default class extends Component {
   }
 
   createClauses = (clauses) => {
-    clauses
-      .sort((a, b) => {
-        return a.position > b.position ? 1 : -1
-      })
-    if (!this.state.expanded && clauses.length > 8) clauses = [... clauses].slice(0, 8)
+    const cleanText =  clauses.replace(/<\/?[^>]+(>|$)/g, '').split(' ')
+    if (!this.state.expanded && clauses.length > 8) clauses = cleanText.slice(0, 8).join(' ')
     return {
       __html: clauses
-        .map(function (clause) {
-          return clause.markup
-        })
-        .join('')
-        .replace(/<a/g, '<a rel="noopener noreferer" target="_blank"')
     }
   }
 
@@ -28,14 +20,16 @@ export default class extends Component {
   }
 
   render () {
+    const { content } = this.props
+
     return (
       <div className='container forum-description'>
         <div className='row'>
           <div
             className='col-md-12 content'
-            dangerouslySetInnerHTML={this.createClauses(this.props.content)} />
+            dangerouslySetInnerHTML={this.createClauses(content)} />
         </div>
-        {content.length > 8 && 
+        {content.length > 8 &&
           <div className='row'>
             <div className={`col-md-12 text-center button-container ${!this.state.expanded ? 'see-more' : ''}`}>
               <a
