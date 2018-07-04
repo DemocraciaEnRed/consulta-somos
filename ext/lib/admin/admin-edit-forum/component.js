@@ -13,7 +13,7 @@ export default class EditForum extends Component {
       title: this.props.forum.title,
       summary: this.props.forum.summary,
       extra: {
-        richSummary: this.props.forum.extra.richSummary
+        richSummary: this.props.forum.extra ? this.props.forum.extra.richSummary : ''
       },
       coverUrl: this.props.forum.coverUrl,
       updated: false
