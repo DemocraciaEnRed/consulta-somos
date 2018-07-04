@@ -120,7 +120,7 @@ export default class EditForum extends Component {
               </div>
             </fieldset>
             <fieldset>
-              <label>{t('forum.form.rich.summary.label')}</label>
+              <label className='rich-summary'>{t('forum.form.rich.summary.label')}</label>
               <div className='form-group clearfix summary'>
                 <textarea
                   name='richSummary'
