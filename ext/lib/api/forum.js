@@ -33,6 +33,14 @@ const keys = [
   getUserKeys('owner')
 ].join(' ')
 
+const attrPregunta = {
+  "name" : "pregunta", 
+  "title" : "Pregunta a definir con la consulta", 
+  "description" : "Colocar aquí la pregunta que será definida en el eje de la consulta", 
+  "mandatory" : true, 
+  "kind" : "LongString"
+}
+
 
 app.post('/create',
 middlewares.users.restrict,
@@ -48,7 +56,8 @@ function createForum(req, res, next) {
     permissions: req.body.permissions,
     extra: {
       richSummary: req.body.richSummary
-    }
+    },
+    topicsAttrs: [].push(attrPregunta)
   }
 
   log('Trying to create forum with name: %s', data.name)
