@@ -38,7 +38,7 @@ const attrPregunta = {
   "title" : "Pregunta a definir con la consulta", 
   "description" : "Colocar aquí la pregunta que será definida en el eje de la consulta", 
   "mandatory" : true, 
-  "kind" : "LongString"
+  "kind" : "String"
 }
 
 
