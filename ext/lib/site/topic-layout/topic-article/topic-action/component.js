@@ -7,7 +7,9 @@ import Hierarchy from 'lib/site/topic-layout/topic-article/hierarchy/component'
 
 export default ({ topic }) => (
   <div className='topic-article-content topic-article-action'>
-    <h3 className='topic-action-title'>{'¿Star-Lord fue culpable de que Thanos alcanzara su objetivo?'}</h3>
+    {topic.attrs.pregunta &&
+      <h3 className='topic-action-title'>{topic.attrs.pregunta}</h3>
+    }
     {!!topic.voted &&
       <div className='topic-action-voted'>
         {topic.open &&
