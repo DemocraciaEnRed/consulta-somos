@@ -7,7 +7,7 @@ import Hierarchy from 'lib/site/topic-layout/topic-article/hierarchy/component'
 
 export default ({ topic }) => (
   <div className='topic-article-content topic-article-action'>
-    {topic.attrs.pregunta &&
+    {topic.attrs && topic.attrs.pregunta &&
       <h3 className='topic-action-title'>{topic.attrs.pregunta}</h3>
     }
     {!!topic.voted &&
@@ -39,7 +39,7 @@ export default ({ topic }) => (
       <div className='action-count'>
         <div className='participantes' />
         <span className='number'>{topic.action.count}</span>
-        <span>participantes</span>
+        <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
       </div>
     }
   </div>
