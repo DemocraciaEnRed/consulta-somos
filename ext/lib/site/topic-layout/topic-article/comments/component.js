@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import t from 't-component'
 import CommentsForm from 'lib/site/topic-layout/topic-article/comments/form/component'
 import CommentsList from './list/component'
@@ -37,8 +38,8 @@ export class Comments extends Component {
               (
                 <div className="alert alert-info" role="alert" style={{marginTop: '10px'}}>
                   <span className="icon-info" style={{marginRight: '5px'}}></span>
-                  <span>La Consulta Pública de los compromisos que formarán parte del Tercer Plan de Acción de Gobierno Abierto ha finalizado.</span>
-                  <br /><span>Para seguir los avances del proceso podés ingresar a <a href='https://www.argentina.gob.ar/mesasogp'>https://www.argentina.gob.ar/mesasogp</a></span>
+                  <span>La Consulta Pública  ha finalizado.</span>
+                  <br /><span><Link to='/'>Te invitamos a conocer otras consultas y participar.</Link></span>
                 </div>
               )
             }
