@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import ReactDOM from 'react-dom'
+import { browserHistory, Link } from 'react-router'
 import userConnector from 'lib/site/connectors/user'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import Footer from 'ext/lib/site/footer/component'
@@ -19,6 +20,11 @@ class HomeMultiForum extends Component {
     forumStore.findAll().then((forums) => {
       this.setState({ forums })
     }).catch((err) => { throw err })
+  }
+
+  handleButtonClick = () => {
+    const consultasNode = ReactDOM.findDOMNode(this.refs.consultas)
+    window.scrollTo(0, consultasNode.offsetTop)
   }
 
   render () {
@@ -43,7 +49,7 @@ class HomeMultiForum extends Component {
               <p className='lead highlight'>
                 Construyamos una Argentina más abierta, más transparente y colaborativa.
               </p>
-              {this.props.user.state.rejected && (
+              {this.props.user.state.rejected ? (
                 <p>
                   <Link
                     className='btn btn-primary'
@@ -53,6 +59,14 @@ class HomeMultiForum extends Component {
                     }}>
                     Quiero participar
                   </Link>
+                </p>
+              ) : (
+                <p>
+                  <button
+                    className='btn btn-primary'
+                    onClick={this.handleButtonClick}>
+                    Quiero participar
+                  </button>
                 </p>
               )}
             </div>
@@ -75,7 +89,7 @@ class HomeMultiForum extends Component {
           <div className="arrow-down"></div>
         </div>
 
-        <div className='container forums-list'>
+        <div className='container forums-list' ref='consultas'>
           <h2 className='forums-list-title'>Consultas</h2>
           {this.state.forums.map((forum, key) => (
             <ForumContainer forum={forum} key={key} />
