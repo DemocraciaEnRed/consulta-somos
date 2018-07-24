@@ -29,12 +29,13 @@ export default class Carrusel extends Component {
   componentDidUpdate () {
     if (this.flkty) this.flkty.destroy()
     const options = {
-      cellAlign: 'center',
+      cellAlign: 'left',
       draggable: false,
       // friction: 0.2,
       contain: true,
       pageDots: false,
-      wrapAround: true
+      wrapAround: true,
+      groupCells: 3,
     }
     this.flkty = new Flickity(this.refs.carrusel, options)
   }
