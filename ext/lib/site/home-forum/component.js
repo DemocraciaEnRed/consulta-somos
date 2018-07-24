@@ -97,9 +97,10 @@ export default class HomeForum extends Component {
             <h5>{this.state.topics.length} ejes comprenden esta consulta</h5>
           }
           <div className='topics-card-wrapper'>
-            {this.state.topics.map((topic) => (
-              <TopicCard key={topic.id} topic={topic} />
-            ))}
+            {this.state.topics
+              .sort((a,b) => a.mediaTitle.localeCompare(b.mediaTitle))
+              .map((topic) => <TopicCard key={topic.id} topic={topic} />)
+            }
           </div>
         </div>
         <Footer />
