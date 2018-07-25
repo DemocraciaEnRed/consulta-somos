@@ -35,7 +35,7 @@ export default class extends Component {
       <div className='container forum-description'>
         <div className='row'>
           <div
-            className={`col-md-12 content ${}`}
+            className={`col-md-12 content ${(this.state.maxContent && !this.state.expanded) ? 'cropped' : ''}`}
             ref='content'
             dangerouslySetInnerHTML={this.createClauses(content)} />
         </div>
