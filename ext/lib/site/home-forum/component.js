@@ -88,13 +88,13 @@ export default class HomeForum extends Component {
         { (forum.extra && forum.extra.richSummary) ?
           <ForumDescription content={forum.extra.richSummary} />
         :
-          <div className='summary-container'>
+          <div className='container summary-container'>
             {forum.summary}
           </div>
         }
         <div className='container topics-container' ref='anchor' >
           {this.state.topics.length > 0 &&
-            <h5>{this.state.topics.length} ejes comprenden esta consulta</h5>
+            <h5>{`${this.state.topics.length} ${this.state.topics.length > 1 ? 'ejes comprenden' : 'eje comprende'} esta consulta`}</h5>
           }
           <div className='topics-card-wrapper'>
             {this.state.topics
