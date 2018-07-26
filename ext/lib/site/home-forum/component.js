@@ -94,7 +94,7 @@ export default class HomeForum extends Component {
         }
         <div className='container topics-container' ref='anchor' >
           {this.state.topics.length > 0 &&
-            <h5>{this.state.topics.length} ejes comprenden esta consulta</h5>
+            <h5>{`${this.state.topics.length} ${this.state.topics.length > 1 ? 'ejes comprenden' : 'eje comprende'} esta consulta`}</h5>
           }
           <div className='topics-card-wrapper'>
             {this.state.topics.map((topic) => (
