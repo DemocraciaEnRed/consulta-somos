@@ -106,7 +106,6 @@ class TopicArticle extends Component {
               title={topic.mediaTitle} />
           )
         }
-
         {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
