@@ -32,7 +32,10 @@ export default ({ topic }) => {
       </div>
       <div className='topic-card-footer'>
         <p className='text-muted'>
-          {`${topic.commentersCount} ${t('proposal-article.participant.plural')}`}
+          {topic.action.method === "" ?
+          `${topic.commentersCount} ${topic.commentersCount === 1 ? t('proposal-article.participant.singular') : t('proposal-article.participant.plural')}` :
+          `${topic.action.count} ${topic.action.count === 1 ? t('proposal-article.participant.singular') : t('proposal-article.participant.plural')}`
+          }
         </p>
         <div className='social-links'>
           <Social topic={topic}/>
