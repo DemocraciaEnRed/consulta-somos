@@ -88,7 +88,7 @@ export default class HomeForum extends Component {
         { (forum.extra && forum.extra.richSummary) ?
           <ForumDescription content={forum.extra.richSummary} />
         :
-          <div className='summary-container'>
+          <div className='container summary-container'>
             {forum.summary}
           </div>
         }
