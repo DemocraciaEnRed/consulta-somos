@@ -3,11 +3,12 @@ const filter = require('mout/object/filter')
 const express = require('express')
 const debug = require('debug')
 const config = require('lib/config')
-const api = require('lib/db-api')
-const apiV2 = require('lib/api-v2/db-api')
 const middlewares = require('lib/api-v2/middlewares')
 const { expose } = require('lib/utils')
 const { canCreateForum } = require('lib/middlewares/forum-middlewares')
+
+const api = require('../db-api')
+const apiV2 = require('lib/api-v2/db-api')
 
 const log = debug('democracyos:ext:api:create-forum')
 
@@ -34,13 +35,38 @@ const keys = [
 ].join(' ')
 
 const attrPregunta = {
-  "name" : "pregunta", 
-  "title" : "Pregunta a definir con la consulta", 
-  "description" : "Colocar aquí la pregunta que será definida en el eje de la consulta", 
-  "mandatory" : true, 
+  "name" : "pregunta",
+  "title" : "Pregunta a definir con la consulta",
+  "description" : "Colocar aquí la pregunta que será definida en el eje de la consulta",
+  "mandatory" : true,
   "kind" : "String"
 }
 
+app.get('/search/:byWhat',
+function(req, res, next) {
+  switch (req.params.byWhat) {
+    case 'byClosed':
+      api.forum.findByClosed((err, forums) => {
+        if(err) return next(err)
+        return res.json(forums)
+      })
+      break
+    case 'byPopular':
+      api.forum.findByPopular((err, forums) => {
+        if(err) return next(err)
+        return res.json(forums)
+      })
+      break
+    case 'byDate':
+      api.forum.all((err, forums) => {
+        if(err) return next(err)
+        return res.json(forums)
+      })
+      break
+    default:
+      res.sendStatus(404)
+  }
+});
 
 app.post('/create',
 middlewares.users.restrict,
@@ -57,7 +83,7 @@ function createForum(req, res, next) {
     extra: {
       richSummary: req.body.richSummary
     },
-    topicsAttrs: [].push(attrPregunta)
+    topicsAttrs: [attrPregunta]
   }
 
   log('Trying to create forum with name: %s', data.name)

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { browserHistory, Link } from 'react-router'
 import userConnector from 'lib/site/connectors/user'
-import forumStore from 'lib/stores/forum-store/forum-store'
 import Footer from 'ext/lib/site/footer/component'
+
+import forumStore from '../../stores/forum-store/forum-store'
 import ForumContainer from './forum-container/component'
 import ForumCard from './forum-card/component'
 
@@ -12,14 +13,30 @@ class HomeMultiForum extends Component {
     super(props)
 
     this.state = {
+      activeFilter: 'byDate',
       forums: []
     }
   }
 
   componentDidMount () {
-    forumStore.findAll().then((forums) => {
-      this.setState({ forums })
-    }).catch((err) => { throw err })
+    forumStore
+      .findAll()
+      .then((forums) => {
+        this.setState({ forums })
+      })
+      .catch(console.error)
+  }
+
+  handleClick = (name) => {
+    forumStore
+      .findBy(name)
+      .then((forums) => {
+        this.setState({
+          forums,
+          activeFilter: name
+        })
+      })
+      .catch(console.error)
   }
 
   handleButtonClick = () => {
@@ -29,6 +46,10 @@ class HomeMultiForum extends Component {
 
   render () {
     if (this.props.user.state.pending) return null
+
+    const { activeFilter, forums } = this.state
+
+
 
     return (
       <div className='ext-site-home-multiforum'>
@@ -91,7 +112,33 @@ class HomeMultiForum extends Component {
 
         <div className='container forums-list' ref='consultas'>
           <h2 className='forums-list-title'>Consultas</h2>
-          {this.state.forums.map((forum, key) => (
+          <div className="content-center">
+            <div className="btn-group btn-group-sm" role="group" aria-label="Filtros">
+              <button
+                type="button"
+                className={`btn ${activeFilter === 'byDate' ? 'btn-primary' : 'btn-secondary'}`}
+                onClick={this.handleClick.bind(this, 'byDate')}
+              >
+                Nuevas
+              </button>
+              <button
+                type="button"
+                className={`btn ${activeFilter === 'byPopular' ? 'btn-primary' : 'btn-secondary'}`}
+                onClick={this.handleClick.bind(this, 'byPopular')}
+              >
+                Populares
+              </button>
+              <button
+                type="button"
+                className={`btn ${activeFilter === 'byClosed' ? 'btn-primary' : 'btn-secondary'}`}
+                onClick={this.handleClick.bind(this, 'byClosed')}
+              >
+                Finalizadas
+              </button>
+            </div>
+          </div>
+          {!forums.length && <h3 className="no-result">No hay resultados</h3>}
+          {!!forums.length && forums.map((forum, key) => (
             <ForumContainer forum={forum} key={key} />
           ))}
         </div>
