@@ -116,21 +116,21 @@ class HomeMultiForum extends Component {
             <div className="btn-group btn-group-sm" role="group" aria-label="Filtros">
               <button
                 type="button"
-                className={`btn ${activeFilter === 'byDate' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byDate')}
               >
                 Nuevas
               </button>
               <button
                 type="button"
-                className={`btn ${activeFilter === 'byPopular' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn ${activeFilter === 'byPopular' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byPopular')}
               >
                 Populares
               </button>
               <button
                 type="button"
-                className={`btn ${activeFilter === 'byClosed' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`btn ${activeFilter === 'byClosed' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byClosed')}
               >
                 Finalizadas
