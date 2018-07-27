@@ -112,7 +112,7 @@ class HomeMultiForum extends Component {
 
         <div className='container forums-list' ref='consultas'>
           <h2 className='forums-list-title'>Consultas</h2>
-          <div className="content-center">
+          <div className="filter-container content-center">
             <div className="btn-group btn-group-sm" role="group" aria-label="Filtros">
               <button
                 type="button"
