@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import urlBuilder from 'lib/url-builder'
 
 export default ({ forum }) => (
   <div className='forum-card'>
@@ -18,7 +19,7 @@ export default ({ forum }) => (
         <p className='forum-card-description'>{forum.summary}</p>
       </div>
       <div className='forum-card-footer'>
-        <Link to={forum.url}>
+        <Link to={urlBuilder.for('site.forum', { forum: forum.name })}>
           <button className='btn btn-link' >
             Ver más información
           </button>

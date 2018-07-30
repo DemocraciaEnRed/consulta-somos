@@ -41,7 +41,7 @@ export default class Carrusel extends Component {
   }
 
   componentWillUnmount () {
-    this.flkty.destroy()
+    if (this.flkty) this.flkty.destroy()
   }
 
   render () {
