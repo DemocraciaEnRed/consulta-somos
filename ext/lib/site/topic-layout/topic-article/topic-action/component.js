@@ -28,6 +28,7 @@ export default ({ topic, userAttrs }) => (
     {topic.attrs && topic.attrs.pregunta &&
       <h3 className='topic-action-title'>{topic.attrs.pregunta}</h3>
     }
+  
     {!topic.closed && !topic.voted && userAttrs &&
       <p className='topic-action-explain'>{text(topic.action.method)}</p>
     }
