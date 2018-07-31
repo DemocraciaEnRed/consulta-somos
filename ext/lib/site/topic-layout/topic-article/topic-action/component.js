@@ -1,25 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router'
 import Vote from 'lib/site/topic-layout/topic-article/vote/component'
 import Poll from 'lib/site/topic-layout/topic-article/poll/component'
 import Cause from 'lib/site/topic-layout/topic-article/cause/component'
 import Slider from 'lib/site/topic-layout/topic-article/slider/component'
 import Hierarchy from 'lib/site/topic-layout/topic-article/hierarchy/component'
 
-export default ({ topic }) => (
+const text = (method) => {
+  switch (method) {
+    case 'cause':
+      return 'Brindá tu apoyo a la iniciativa'
+    case 'slider':
+      return 'Deslizá hacia el lado que se incline más hacia tu opinión'
+    case 'hierarchy':
+      return 'Podés organizar o arrastrar las opciones en el orden que más se ajuste a tus prioridades'
+    case 'vote':
+      return 'Elegí la opción que más se ajuste a tu posición'
+    case 'poll':
+      return 'Elegí la opción que más se ajuste a tu posición'
+    default:
+      return 'Elegí la opción que más se ajuste a tu posición'
+  }
+}
+
+export default ({ topic, userAttrs }) => (
   <div className='topic-article-content topic-article-action'>
     {topic.attrs && topic.attrs.pregunta &&
       <h3 className='topic-action-title'>{topic.attrs.pregunta}</h3>
     }
-    {!!topic.voted &&
-      <div className='topic-action-voted'>
-        {topic.open &&
-          <p><i className='icon-clock' />Ya votaste en este eje</p>
-        }
-    {topic.open &&    <div>
-          <span>Elegiste la opción:</span>
-          <span className='option'>{topic.voted}</span>
-    </div> }
-      </div>
+  
+    {!topic.closed && !topic.voted && userAttrs &&
+      <p className='topic-action-explain'>{text(topic.action.method)}</p>
     }
     {(() => {
       switch(topic.action.method) {
@@ -35,11 +46,23 @@ export default ({ topic }) => (
           return <Hierarchy topic={topic} />
         }
     })()}
+    {topic.voted && !topic.closed &&
+      <div className='voted-results-exp'>
+        Tan pronto cierre la consulta podrás visualizar los resultados.
+      </div>
+    }
     {topic.closed &&
-      <div className='action-count'>
-        <div className='participantes' />
-        <span className='number'>{topic.action.count}</span>
-        <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
+      <div>
+        <div className='action-count'>
+          <div className='participantes' />
+          <span className='number'>{topic.action.count}</span>
+          <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
+        </div>
+        <Link to='/'>
+          <button className='btn btn-primary'>
+            Participar en otra consulta
+          </button>
+        </Link>
       </div>
     }
   </div>

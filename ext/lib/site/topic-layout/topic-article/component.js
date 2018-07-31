@@ -75,7 +75,7 @@ class TopicArticle extends Component {
     return (
       <div className='topic-article-wrapper'>
         <Social topic={topic} />
-        
+
         <div className='secondary-wrapper'>
 
         {
@@ -94,7 +94,8 @@ class TopicArticle extends Component {
           mediaTitle={topic.mediaTitle} />
         { topic.action.method &&
           <TopicAction
-            topic={topic} />
+            topic={topic}
+            userAttrs={userAttrs} />
         }
         {topic.clauses && <Content clauses={topic.clauses} />}
         {
