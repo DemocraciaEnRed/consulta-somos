@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import t from 't-component'
 import Vote from 'lib/site/topic-layout/topic-article/vote/component'
 import Poll from 'lib/site/topic-layout/topic-article/poll/component'
 import Cause from 'lib/site/topic-layout/topic-article/cause/component'
@@ -31,6 +32,13 @@ export default ({ topic, userAttrs }) => (
   
     {!topic.closed && !topic.voted && userAttrs &&
       <p className='topic-action-explain'>{text(topic.action.method)}</p>
+    }
+    {!topic.closed && topic.voted && topic.action.method === 'poll' &&
+      <div className='alert alert-info alert-poll' role='alert'>
+        <span className='icon-info bold' />
+        <span className='black bold thanks'>{t('topics.actions.thanks')}</span>
+        <span className='black'>{t('topics.actions.feedback')}</span>
+      </div>
     }
     {(() => {
       switch(topic.action.method) {
