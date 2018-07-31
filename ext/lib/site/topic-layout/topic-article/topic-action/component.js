@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import Vote from 'lib/site/topic-layout/topic-article/vote/component'
 import Poll from 'lib/site/topic-layout/topic-article/poll/component'
 import Cause from 'lib/site/topic-layout/topic-article/cause/component'
@@ -13,6 +14,10 @@ const text = (method) => {
       return 'Deslizá hacia el lado que se incline más hacia tu opinión'
     case 'hierarchy':
       return 'Podés organizar o arrastrar las opciones en el orden que más se ajuste a tus prioridades'
+    case 'vote':
+      return 'Elegí la opción que más se ajuste a tu posición'
+    case 'poll':
+      return 'Elegí la opción que más se ajuste a tu posición'
     default:
       return 'Elegí la opción que más se ajuste a tu posición'
   }
@@ -40,11 +45,23 @@ export default ({ topic, userAttrs }) => (
           return <Hierarchy topic={topic} />
         }
     })()}
+    {topic.voted && !topic.closed &&
+      <div className='voted-results-exp'>
+        Tan pronto cierre la consulta podrás visualizar los resultados.
+      </div>
+    }
     {topic.closed &&
-      <div className='action-count'>
-        <div className='participantes' />
-        <span className='number'>{topic.action.count}</span>
-        <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
+      <div>
+        <div className='action-count'>
+          <div className='participantes' />
+          <span className='number'>{topic.action.count}</span>
+          <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
+        </div>
+        <Link to='/'>
+          <button className='btn btn-primary'>
+            Participar en otra consulta
+          </button>
+        </Link>
       </div>
     }
   </div>
