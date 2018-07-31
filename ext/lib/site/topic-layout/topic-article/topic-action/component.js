@@ -5,10 +5,26 @@ import Cause from 'lib/site/topic-layout/topic-article/cause/component'
 import Slider from 'lib/site/topic-layout/topic-article/slider/component'
 import Hierarchy from 'lib/site/topic-layout/topic-article/hierarchy/component'
 
-export default ({ topic }) => (
+const text = (method) => {
+  switch (method) {
+    case 'cause':
+      return 'Brindá tu apoyo a la iniciativa'
+    case 'slider':
+      return 'Deslizá hacia el lado que se incline más hacia tu opinión'
+    case 'hierarchy':
+      return 'Podés organizar o arrastrar las opciones en el orden que más se ajuste a tus prioridades'
+    default:
+      return 'Elegí la opción que más se ajuste a tu posición'
+  }
+}
+
+export default ({ topic, userAttrs }) => (
   <div className='topic-article-content topic-article-action'>
     {topic.attrs && topic.attrs.pregunta &&
       <h3 className='topic-action-title'>{topic.attrs.pregunta}</h3>
+    }
+    {!topic.closed && !topic.voted && userAttrs &&
+      <p className='topic-action-explain'>{text(topic.action.method)}</p>
     }
     {(() => {
       switch(topic.action.method) {
