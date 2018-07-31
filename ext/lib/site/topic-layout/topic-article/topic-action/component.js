@@ -13,12 +13,12 @@ export default ({ topic }) => (
     {!!topic.voted &&
       <div className='topic-action-voted'>
         {topic.open &&
-          <p>Ya votaste en la consulta</p>
+          <p><i className='icon-clock' />Ya votaste en este eje</p>
         }
-        <div>
+    {topic.open &&    <div>
           <span>Elegiste la opción:</span>
           <span className='option'>{topic.voted}</span>
-        </div>
+    </div> }
       </div>
     }
     {(() => {
