@@ -10,17 +10,6 @@ export default ({ topic }) => (
     {topic.attrs && topic.attrs.pregunta &&
       <h3 className='topic-action-title'>{topic.attrs.pregunta}</h3>
     }
-    {!!topic.voted &&
-      <div className='topic-action-voted'>
-        {topic.open &&
-          <p>Ya votaste en la consulta</p>
-        }
-        <div>
-          <span>Elegiste la opción:</span>
-          <span className='option'>{topic.voted}</span>
-        </div>
-      </div>
-    }
     {(() => {
       switch(topic.action.method) {
         case 'vote':
