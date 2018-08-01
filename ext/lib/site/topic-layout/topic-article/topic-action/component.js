@@ -61,11 +61,17 @@ export default ({ topic, userAttrs }) => (
     }
     {topic.closed &&
       <div>
-        <div className='action-count'>
-          <div className='participantes' />
-          <span className='number'>{topic.action.count}</span>
-          <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
-        </div>
+        {topic.action.method == 'cause' ?
+         (  <div className='action-count'>
+            <span className='number'>{topic.action.count}</span>
+            <span>{topic.action.count === 1 ? 'participante brindó' : 'participantes brindaron'} su apoyo.</span>
+            </div>  )  : ( 
+          <div className='action-count'>
+            <div className='participantes' />
+            <span className='number'>{topic.action.count}</span>
+            <span>{topic.action.count === 1 ? 'participante' : 'participantes'}</span>
+          </div> )
+         }
         <Link to='/'>
           <button className='btn btn-primary'>
             Participar en otra consulta
