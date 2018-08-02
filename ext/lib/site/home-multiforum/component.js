@@ -106,8 +106,8 @@ class HomeMultiForum extends Component {
         </div>        </div>
 
         <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
-          <p>Conocé las consultas publicadas</p>
-          <div className="arrow-down"></div>
+          <p>Conocé las consultas disponibles</p>
+          <i className="icon-arrow-down" />
         </div>
 
         <div className='container forums-list' ref='consultas'>
