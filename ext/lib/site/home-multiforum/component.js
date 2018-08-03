@@ -113,28 +113,32 @@ class HomeMultiForum extends Component {
         <div className='container forums-list' ref='consultas'>
           <h2 className='forums-list-title'>Consultas</h2>
           <div className="filter-container content-center">
-            <div className="btn-group btn-group-sm" role="group" aria-label="Filtros">
-              <button
-                type="button"
-                className={`btn ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
+            <div className="btn-group btn-group-sm dropdown-element" role="group" aria-label="Filtros">
+            <button
+                className={`btn dropbtn ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
+                onClick={this.handleClick.bind(this, 'byDate')}
+              >
+               {this.state.activeFilter}
+              </button>
+            <ul className='dropdown-content'>
+              <li
+                className={`btn btn-item-dropdown ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byDate')}
               >
                 Nuevas
-              </button>
-              <button
-                type="button"
-                className={`btn ${activeFilter === 'byPopular' ? 'btn-active' : 'btn-secondary'}`}
+              </li>
+              <li
+                className={`btn btn-item-dropdown ${activeFilter === 'byPopular' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byPopular')}
               >
                 Populares
-              </button>
-              <button
-                type="button"
-                className={`btn ${activeFilter === 'byClosed' ? 'btn-active' : 'btn-secondary'}`}
+              </li>
+              <li
+                className={`btn btn-item-dropdown ${activeFilter === 'byClosed' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byClosed')}
               >
                 Finalizadas
-              </button>
+              </li></ul>
             </div>
           </div>
           {!forums.length && <h3 className="no-result">No hay resultados</h3>}
