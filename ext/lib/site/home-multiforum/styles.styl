@@ -106,13 +106,16 @@
     margin: 20px
 
   .filter-container
-    .btn {
-      padding: 5px 25px 5px 25px !important;
-    }
+    .btn-group 
+      @media (max-width: 600px)
+        display: flex
+        flex-direction: column
+    .btn
+      min-width:130px
+      padding: 5px 25px 5px 25px !important
 
-    .btn-secondary {
-      background-color: inherit;
-    }
+    .btn-secondary
+      background-color: inherit
 
     .btn-active{
       text-underline: none;
