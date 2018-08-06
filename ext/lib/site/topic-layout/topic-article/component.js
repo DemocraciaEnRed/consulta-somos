@@ -111,6 +111,7 @@ class TopicArticle extends Component {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
       </div>
+      <LateralBar />
   </div>
 
     )
