@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { browserHistory, Link } from 'react-router'
+import Jump from 'jump.js'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import Footer from 'ext/lib/site/footer/component'
@@ -42,8 +43,7 @@ export default class HomeForum extends Component {
   }
 
   handleScroll = () => {
-    const scrollNode = ReactDOM.findDOMNode(this.refs.anchor)
-    window.scrollTo(0, scrollNode.offsetTop)
+    Jump('#anchor')
   }
 
   render () {
@@ -104,7 +104,7 @@ export default class HomeForum extends Component {
             {forum.summary}
           </div>
         }
-        <div className='container topics-container' ref='anchor' >
+        <div className='container topics-container' id='anchor' >
           {this.state.topics.length > 0 &&
             <h5>{`${this.state.topics.length} ${this.state.topics.length > 1 ? 'ejes comprenden' : 'eje comprende'} esta consulta`}</h5>
           }
