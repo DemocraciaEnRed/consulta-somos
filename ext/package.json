@@ -12,8 +12,9 @@
     "lib/config": "lib/config/config"
   },
   "dependencies": {
-    "flickity": "2.0.8",
     "argob-poncho": "0.3.2",
+    "flickity": "2.0.8",
+    "jump.js": "^1.0.2",
     "pug": "2.0.0-rc.4"
   }
 }
