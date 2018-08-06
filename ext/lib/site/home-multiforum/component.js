@@ -118,7 +118,16 @@ class HomeMultiForum extends Component {
                 className={`btn dropbtn ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byDate')}
               >
-               {this.state.activeFilter}
+              {(() => {
+                switch(this.state.activeFilter) {
+                  case 'byDate':
+                    return  'Nuevas'
+                  case 'byPopular':
+                    return 'Populares'
+                  case 'byClosed':
+                    return 'Finalizadas'
+                  }
+              })()}
               </button>
             <ul className='dropdown-content'>
               <li
