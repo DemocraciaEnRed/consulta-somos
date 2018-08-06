@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { browserHistory, Link } from 'react-router'
+import Jump from 'jump.js'
 import userConnector from 'lib/site/connectors/user'
 import Footer from 'ext/lib/site/footer/component'
-
 import forumStore from '../../stores/forum-store/forum-store'
 import ForumContainer from './forum-container/component'
 import ForumCard from './forum-card/component'
@@ -40,8 +40,9 @@ class HomeMultiForum extends Component {
   }
 
   handleButtonClick = () => {
-    const consultasNode = ReactDOM.findDOMNode(this.refs.consultas)
-    window.scrollTo(0, consultasNode.offsetTop)
+    Jump('#consultas')
+    // const consultasNode = ReactDOM.findDOMNode(this.refs.consultas)
+    // window.scrollTo(0, consultasNode.offsetTop)
   }
 
   render () {
@@ -107,10 +108,10 @@ class HomeMultiForum extends Component {
 
         <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
           <p>Conocé las consultas disponibles</p>
-          <i className="icon-arrow-down" />
+          <i className='icon-arrow-down' onClick={this.handleButtonClick} />
         </div>
 
-        <div className='container forums-list' ref='consultas'>
+        <div className='container forums-list' id='consultas'>
           <h2 className='forums-list-title'>Consultas</h2>
           <div className="filter-container content-center">
             <div className="btn-group btn-group-sm dropdown-element" role="group" aria-label="Filtros">
