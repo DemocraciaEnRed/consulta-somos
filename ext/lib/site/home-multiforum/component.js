@@ -106,35 +106,48 @@ class HomeMultiForum extends Component {
         </div>        </div>
 
         <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
-          <p>Conocé las consultas publicadas</p>
-          <div className="arrow-down"></div>
+          <p>Conocé las consultas disponibles</p>
+          <i className="icon-arrow-down" />
         </div>
 
         <div className='container forums-list' ref='consultas'>
           <h2 className='forums-list-title'>Consultas</h2>
           <div className="filter-container content-center">
-            <div className="btn-group btn-group-sm" role="group" aria-label="Filtros">
-              <button
-                type="button"
-                className={`btn ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
+            <div className="btn-group btn-group-sm dropdown-element" role="group" aria-label="Filtros">
+            <button
+                className={`btn dropbtn ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
+                onClick={this.handleClick.bind(this, 'byDate')}
+              >
+              {(() => {
+                switch(this.state.activeFilter) {
+                  case 'byDate':
+                    return  'Nuevas'
+                  case 'byPopular':
+                    return 'Populares'
+                  case 'byClosed':
+                    return 'Finalizadas'
+                  }
+              })()}
+              </button>
+            <ul className='dropdown-content'>
+              <li
+                className={`btn btn-item-dropdown ${activeFilter === 'byDate' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byDate')}
               >
                 Nuevas
-              </button>
-              <button
-                type="button"
-                className={`btn ${activeFilter === 'byPopular' ? 'btn-active' : 'btn-secondary'}`}
+              </li>
+              <li
+                className={`btn btn-item-dropdown ${activeFilter === 'byPopular' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byPopular')}
               >
                 Populares
-              </button>
-              <button
-                type="button"
-                className={`btn ${activeFilter === 'byClosed' ? 'btn-active' : 'btn-secondary'}`}
+              </li>
+              <li
+                className={`btn btn-item-dropdown ${activeFilter === 'byClosed' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byClosed')}
               >
                 Finalizadas
-              </button>
+              </li></ul>
             </div>
           </div>
           {!forums.length && <h3 className="no-result">No hay resultados</h3>}

@@ -67,7 +67,8 @@
     padding-left: 5%;
     padding-right: 5%;
     &.last
-      text-transform:uppercase
+      color: #0695d6
+      font-weight:bold
       flex-direction:column
       justify-content:center
   .arrow
@@ -95,30 +96,59 @@
   .fa-bullhorn
     background-image: url("ext/lib/site/home-multiforum/bullhorn.svg")
 
-  .arrow-down
-    background-image: url("ext/lib/site/home-multiforum/arrow-down.svg")
-    width:20px
-    height:20px
+  .icon-arrow-down
+    font-size:30px
+    color: #0695d6
 
   .content-center
     display: flex;
     align-self: center;
     margin: 20px
 
-  .filter-container
-    .btn {
-      padding: 5px 25px 5px 25px !important;
-    }
+    .btn
+    .dropdown-element
+    .dropbtn
+      min-width:130px
+      padding: 5px 25px 5px 25px !important
 
-    .btn-secondary {
-      background-color: inherit;
-    }
+    .btn-secondary
+      background-color: #fff
 
-    .btn-active{
-      text-underline: none;
-      background-color: #e9e9e9;
-      color: #0695d6;
-      &:focus {
-        outline: none;
-      }
-    }
+    .btn-active
+      text-underline: none
+      background-color: #e9e9e9
+      color: #0695d6
+      &:focus
+        outline: none
+
+.dropbtn
+  width:150px
+  font-size:16px !important
+  @media (min-width: 701px)
+    display:none
+
+.dropdown-element:hover .dropdown-content
+  @media (max-width: 700px)
+    display: block
+
+.dropdown-content
+  @media (max-width: 700px)
+    li
+      display:block
+      margin-bottom:0
+
+.dropdown-content
+  @media (max-width: 700px)
+    display: none
+    position: absolute
+    z-index: 1
+    left: -14px
+    top: 36px
+
+.dropdown-element
+  @media (max-width: 700px)
+    position: relative
+    display: inline-block
+
+.small-arrow
+  font-size:9px !important   

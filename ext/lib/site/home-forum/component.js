@@ -85,6 +85,18 @@ export default class HomeForum extends Component {
             </div>
           </div>
         </section>
+        { (forum.extra && forum.extra.author) &&
+          <div className='container'>
+            <div className='row'>
+              <div className='col-md-4 col-sm-12 autor-container'>
+                <span>
+                  <strong>Autor:</strong>
+                </span>
+                <span>{forum.extra.author}</span>
+              </div>
+            </div>
+          </div>
+        }
         { (forum.extra && forum.extra.richSummary) ?
           <ForumDescription content={forum.extra.richSummary} />
         :
