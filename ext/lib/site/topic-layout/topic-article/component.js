@@ -10,7 +10,7 @@ import Social from './social/component'
 import Comments from './comments/component'
 import TopicAction from './topic-action/component'
 import Header from './header/component'
-
+import LateralBar from './lateral-bar/component'
 
 class TopicArticle extends Component {
   constructor (props) {
