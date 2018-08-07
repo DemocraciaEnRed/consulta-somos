@@ -7,7 +7,7 @@ import Timeago from 'lib/site/timeago'
 
 export default ({ topic }) => {
   const linkTopic = () => { 
-    browserHistory.push(topic.url) 
+    window.location.href = topic.url
   }
   return (
   <div 
