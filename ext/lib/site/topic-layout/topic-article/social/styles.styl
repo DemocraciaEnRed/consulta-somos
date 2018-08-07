@@ -13,13 +13,17 @@
   @media (max-width: 991px)
     justify-content: space-between
     margin: 0
+    margin-left:6%
     width:100%
 
   .participants-box
     padding-top: 13px
     min-width:120px
+    @media (max-width:990px)
+      width:200px
     :last-child
-      padding-top: 1em
+      @media (min-width:990px)
+        padding-top: 1em
 
     span
       display: inline-block
@@ -40,7 +44,7 @@
       cursor: pointer
 
   .share-links
-    @media (min-width:900px)
+    @media (min-width:990px)
       width: 10px
       min-width:10px
     a
