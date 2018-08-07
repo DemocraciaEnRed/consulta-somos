@@ -16,30 +16,33 @@
     width:100%
 
   .participants-box
-    padding-top: 3px
-    min-width:95px
+    padding-top: 13px
+    min-width:120px
+    :last-child
+      padding-top: 1em
+
     span
       display: inline-block
       font-size: 14px
       color: #666
       margin-right: 5px
       margin-bottom: 5px
-      font-weight:100 !important
-
+      font-weight:100
+    .paticipants-box-published
+      font-weight:500
     .participant-profile
       .avatar
         width: 20px
         height: 20px
         border-radius: 50%
-
     .view-more
       display: inline-block
       cursor: pointer
 
   .share-links
-    width: 10px !important
-
-
+    @media (min-width:900px)
+      width: 10px
+      min-width:10px
     a
       background: #666
       padding: 8px 5px
@@ -52,7 +55,6 @@
       transition: all .3s ease-in-out
       background-color: #959595
 
-
       &:hover
         text-decoration: none
 
@@ -62,5 +64,5 @@
       &.icon-social-twitter:hover
         background-color: #3498db
 
-.topic-article-wrapper.topic-social.share-links
-  width: 10px !important
+.ext-topic-layout .topic-article-wrapper .topic-social .participants-box span
+  font-weight:100        

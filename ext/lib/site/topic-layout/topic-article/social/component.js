@@ -14,9 +14,9 @@ export default ({ topic }) => {
   return (
     <div className='topic-article-content topic-social'>
       <div className='participants-box'>
-        <span>Publicado</span>
+        <span className='paticipants-box-published'>Publicado</span>
         <span>{
-          moment(topic.publishedAt).format("MMM Do YY")
+          moment(topic.publishedAt).format('D [de] MMMM YYYY')
         }</span>
         <span>Compartir en redes sociales</span>
       </div>
