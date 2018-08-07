@@ -17,12 +17,22 @@ class TopicArticle extends Component {
     super(props)
 
     this.state = {
-      showSidebar: false
+      showSidebar: false,
+      nodes: false
     }
   }
 
   componentWillMount () {
     bus.on('sidebar:show', this.toggleSidebar)
+  }
+
+  componentDidMount() {
+    const nodes = Array.from(document.querySelectorAll('span[style="font-size: 24px;"]'))
+    if (nodes) {
+      this.setState({
+        nodes: nodes
+      }, ()=> console.log(this.state.nodes))
+    }
   }
 
   componentWillUnmount () {
@@ -111,7 +121,10 @@ class TopicArticle extends Component {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
       </div>
-      <LateralBar />
+      {
+        this.state.nodes && <LateralBar nodes={this.state.nodes}/>
+      }
+      
   </div>
 
     )

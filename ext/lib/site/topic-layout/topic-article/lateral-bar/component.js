@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-export default ({ forum }) => (
+export default ({ nodes }) => (
   <div className='lateral-bar-container'>
+  {console.log(nodes)}
     <ul className='lateral-bar-list'>
         <li className='lateral-bar-item'><a href=''>Archivos y Derechos Humanos</a></li>
         <li className='lateral-bar-item'><a href=''>Introducción</a></li>
