@@ -34,8 +34,7 @@ export default class Carrusel extends Component {
       // friction: 0.2,
       contain: true,
       pageDots: false,
-      wrapAround: true,
-      groupCells: 3,
+      groupCells: window.matchMedia('(min-width: 1024px)').matches ? 3 : 1
     }
     this.flkty = new Flickity(this.refs.carrusel, options)
   }
