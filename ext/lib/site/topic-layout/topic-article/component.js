@@ -31,7 +31,7 @@ class TopicArticle extends Component {
     if (nodes) {
       this.setState({
         nodes: nodes
-      }, ()=> console.log(this.state.nodes))
+      })
     }
   }
 
