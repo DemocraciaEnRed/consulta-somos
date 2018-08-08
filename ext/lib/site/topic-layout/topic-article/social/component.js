@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import t from 't-component'
 import config from 'lib/config'
+const moment = require('moment')
 
 export default ({ topic }) => {
   const { url, mediaTitle, action } = topic
@@ -13,6 +14,10 @@ export default ({ topic }) => {
   return (
     <div className='topic-article-content topic-social'>
       <div className='participants-box'>
+        <span className='paticipants-box-published'>Publicado</span>
+        <span>{
+          moment(topic.publishedAt).format('D [de] MMMM YYYY')
+        }</span>
         <span>Compartir en redes sociales</span>
       </div>
       <div className='share-links'>

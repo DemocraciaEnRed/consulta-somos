@@ -1,6 +1,7 @@
 .secondary-wrapper
   flex-direction: column
-  width:100%
+  margin-left:15px
+  margin-right:15px
 .topic-article-wrapper
   position: relative
   margin-left: auto
@@ -15,14 +16,14 @@
 
   @media (min-width: 544px)
     padding-top: 60px
-    padding-left: 60px
-    padding-right: 60px
+    padding-left: 30px
+    padding-right: 30px
 
   @media (min-width: 768px)
     top: -60px
 
   @media (min-width: 991px)
-    max-width: 900px
+    max-width: 1000px
 
   .topic-article-header
     margin-top: 0
@@ -48,7 +49,7 @@
   @import './social/styles.styl'
   @import './topic-action/styles.styl'
   @import './topic-action/topic-range/styles.styl'
-
+  @import './lateral-bar/styles.styl'
 
   .vote-options
     margin-left: auto
@@ -68,3 +69,6 @@ iframe
   @media (min-width: 700px)
     width: 600px
     height: 400px     
+
+.topic-article-wrapper.large
+  max-width:1000px

@@ -10,19 +10,29 @@ import Social from './social/component'
 import Comments from './comments/component'
 import TopicAction from './topic-action/component'
 import Header from './header/component'
-
+import LateralBar from './lateral-bar/component'
 
 class TopicArticle extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      showSidebar: false
+      showSidebar: false,
+      nodes: false
     }
   }
 
   componentWillMount () {
     bus.on('sidebar:show', this.toggleSidebar)
+  }
+
+  componentDidMount() {
+    const nodes = Array.from(document.querySelectorAll('span[style="font-size: 24px;"]'))
+    if (nodes) {
+      this.setState({
+        nodes: nodes
+      })
+    }
   }
 
   componentWillUnmount () {
@@ -73,7 +83,8 @@ class TopicArticle extends Component {
     }
 
     return (
-      <div className='topic-article-wrapper'>
+      <div className={`topic-article-wrapper ${this.state.nodes.length > 0 ? 'large' : 'small'}`}>
+
         <Social topic={topic} />
 
         <div className='secondary-wrapper'>
@@ -111,6 +122,10 @@ class TopicArticle extends Component {
           !user.state.pending && <Comments forum={forum} topic={topic} />
         }
       </div>
+      {
+        this.state.nodes && <LateralBar nodes={this.state.nodes}/>
+      }
+      
   </div>
 
     )
