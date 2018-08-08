@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
+import Jump from 'jump.js'
 
 export default ({ nodes }) => (
-  <div className='lateral-bar-container'>
-  {console.log(nodes)}
+  <div className={`lateral-bar-container ${nodes.length > 0 ? 'large' : 'small'}`}>
+
+  {console.log(nodes.length)}
     <ul className='lateral-bar-list'>
-        <li className='lateral-bar-item'><a href=''>Archivos y Derechos Humanos</a></li>
-        <li className='lateral-bar-item'><a href=''>Introducción</a></li>
-        <li className='lateral-bar-item'><a href=''>Votá en la consulta</a></li>
-        <li className='lateral-bar-item'><a href=''>Objetivos principales</a></li>
-        <li className='lateral-bar-item'><a href=''>Por qué realizamos esta consulta</a></li>
-        <li className='lateral-bar-item'><a href=''>Comentarios</a></li>
+      {nodes.map((node,i) => (
+        <li className='lateral-bar-item' key={i}>
+          <a onClick={() => Jump(node)}>{node.innerText}</a>
+        </li>
+      ))
+      }
     </ul>
   </div>
 )
