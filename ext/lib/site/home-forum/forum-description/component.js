@@ -45,7 +45,7 @@ export default class extends Component {
               <a
                 onClick={this.expandText}
                 className='bg-white text-secondary' >
-                {!this.state.expanded ? 'Leer más información sobre la consulta' : 'Leer menos'}
+                {!this.state.expanded ? 'Leer más información sobre la consulta' : 'Leer menos sobre esta consulta'}
               </a>
             </div>
           </div>
