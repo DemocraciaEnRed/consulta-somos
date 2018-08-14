@@ -31,7 +31,8 @@ export class Comments extends Component {
       <div className='topic-comments'>
         <div className='topic-article-content'>
           <h2 className='topic-comments-title'>
-            {t('comments.arguments')}
+           {this.state.comments.length}
+           {t('comments.arguments')}
             <CommentsOrderBy onSort={this.props.handleSort} />
             {
               new Date(this.props.topic.closingAt) < new Date() &&
