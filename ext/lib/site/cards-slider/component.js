@@ -7,7 +7,7 @@ export default class Carrusel extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      topics: []
+      topics: null
     }
     this.flkty = null
   }
@@ -19,9 +19,11 @@ export default class Carrusel extends Component {
         if (this.props.topic !== undefined) {
           topics = [...topics].filter((topic) => topic.id !== this.props.topic.id)
         }
-        this.setState({
-          topics: topics.sort(() => 0.5 - Math.random())
-        })
+        if (topics.length > 0) {
+          this.setState({
+            topics: topics.sort(() => 0.5 - Math.random())
+          })
+        }
       })
       .catch((err) => console.error(err))
   }
@@ -44,13 +46,18 @@ export default class Carrusel extends Component {
   }
 
   render () {
-    if (!this.props.forum) return null
+    if (!this.props.forum || !this.state.topics) return null
     return (
+      <div className="fondo-titulo">
+        {this.props.topic &&
+          <h2 className='title'>Podés seguir participando</h2>
+        }
         <div className='topics-container' ref='carrusel'>
-          {this.state.topics.map((topic) => (
+          {this.state.topics && this.state.topics.map((topic) => (
             <TopicCard key={topic.id} topic={topic}/>
           ))}
         </div>
+      </div>
     )
   }
 }
