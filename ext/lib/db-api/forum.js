@@ -230,21 +230,43 @@ exports.exists = function exists (name, fn) {
     })
 }
 
-exports.findByClosed = function findByClosed (fn) {
+exports.findByClosed = function findByClosed (options, fn) {
+  if (typeof options === 'function') {
+    fn = options
+    options = undefined
+  }
+
   log(`Get forums order by the newest.`)
-  Forum
+
+  let query = Forum
     .find({ deletedAt: { $ne: null } })
     .populate('owner')
+
+  if (options.limit) query.limit(options.limit)
+  if (options.skip) query.skip(options.skip)
+
+  query
     .exec(function (err, forums) {
       return fn(err, forums)
     })
 }
 
-exports.findByPopular = function findByPopular (fn) {
+exports.findByPopular = function findByPopular (options, fn) {
+  if (typeof options === 'function') {
+    fn = options
+    options = undefined
+  }
+
   log(`Get forums order by the popular topics.`)
-  Forum
+
+  let query = Forum
     .find({ deletedAt: null })
     .populate('owner')
+
+  if (options.limit) query.limit(options.limit)
+  if (options.skip) query.skip(options.skip)
+
+  query
     .exec(function (err, forums) {
       Promise.all(forums.map((forum) => {
         forum = forum.toJSON()

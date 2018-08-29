@@ -42,23 +42,31 @@ const attrPregunta = {
   "kind" : "String"
 }
 
-app.get('/search/:byWhat',
+const limit = 3
+
+app.get('/search/:byWhat/:page',
 function(req, res, next) {
+  const options = {
+    limit,
+    skip: req.params.page * limit
+  }
+
   switch (req.params.byWhat) {
     case 'byClosed':
-      api.forum.findByClosed((err, forums) => {
+      api.forum.findByClosed(options, (err, forums) => {
         if(err) return next(err)
         return res.json(forums)
       })
       break
     case 'byPopular':
-      api.forum.findByPopular((err, forums) => {
+
+      api.forum.findByPopular(options, (err, forums) => {
         if(err) return next(err)
         return res.json(forums)
       })
       break
     case 'byDate':
-      api.forum.all((err, forums) => {
+      api.forum.all(options, (err, forums) => {
         if(err) return next(err)
         return res.json(forums)
       })

@@ -13,28 +13,57 @@ class HomeMultiForum extends Component {
     super(props)
 
     this.state = {
+      page: 0,
       activeFilter: 'byDate',
       forums: []
     }
   }
 
   componentDidMount () {
+    const {
+      activeFilter
+    } = this.state;
+
     forumStore
-      .findAll()
+      .findBy(activeFilter)
       .then((forums) => {
-        this.setState({ forums })
+        this.setState({
+          forums,
+          showMore: forums.length === 3
+        })
       })
       .catch(console.error)
   }
 
   handleClick = (name) => {
+    const { page } = this.state;
+
     forumStore
       .findBy(name)
       .then((forums) => {
         this.setState({
+          page,
           forums,
           activeFilter: name
         })
+      })
+      .catch(console.error)
+  }
+
+  handleMoreClick = () => {
+    const {
+      page,
+      activeFilter
+    } = this.state;
+
+    forumStore
+      .findBy(activeFilter, page + 1)
+      .then((forums) => {
+        this.setState({
+          page: this.state.page + 1,
+          forums: [...this.state.forums, ...forums],
+          showMore: forums.length === 10
+        });
       })
       .catch(console.error)
   }
@@ -48,9 +77,11 @@ class HomeMultiForum extends Component {
   render () {
     if (this.props.user.state.pending) return null
 
-    const { activeFilter, forums } = this.state
-
-
+    const {
+      showMore,
+      activeFilter,
+      forums
+    } = this.state
 
     return (
       <div className='ext-site-home-multiforum'>
@@ -100,11 +131,21 @@ class HomeMultiForum extends Component {
         </p>
         </div>
         <div className='section-icons col-md-8 offset-md-2'>
-        <div className='row'>
-        <div className='section-icon col-md-4 col-xs-12'><div className="fa-newspaper-o"></div><span>Informate</span> sobre las consultas</div>
-        <div className='section-icon col-md-4 col-xs-12'  ><div className="fa-group"></div><span>Participá</span> en los ejes de las consultas</div>
-        <div className='section-icon col-md-4 col-xs-12'><div className="fa-bullhorn"></div><span>Compartí</span> tu opinión</div>
-        </div>        </div>
+          <div className='row'>
+            <div className='section-icon col-md-4 col-xs-12'>
+              <div className="fa-newspaper-o"></div>
+              <span>Informate</span> sobre las consultas
+            </div>
+            <div className='section-icon col-md-4 col-xs-12'>
+              <div className="fa-group"></div>
+              <span>Participá</span> en los ejes de las consultas
+            </div>
+            <div className='section-icon col-md-4 col-xs-12'>
+              <div className="fa-bullhorn"></div>
+              <span>Compartí</span> tu opinión
+            </div>
+          </div>
+        </div>
 
         <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
           <p>Conocé las consultas disponibles</p>
@@ -155,6 +196,13 @@ class HomeMultiForum extends Component {
           {!!forums.length && forums.map((forum, key) => (
             <ForumContainer forum={forum} key={key} />
           ))}
+          {!!forums.length && showMore &&
+            <div className='row content-center'>
+              <button className="btn btn-active show-more" onClick={this.handleMoreClick}>
+                Cargar mas consultas
+              </button>
+            </div>
+          }
         </div>
         <Footer />
       </div>

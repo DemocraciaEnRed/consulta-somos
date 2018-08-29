@@ -143,8 +143,8 @@ class ForumStore extends Store {
     return fetch
   }
 
-  findBy (what) {
-    const url = `/ext/api/forum/search/${what}`
+  findBy (what, page = 0) {
+    const url = `/ext/api/forum/search/${what}/${page}`
     const fetch = new Promise((resolve, reject) => {
       request
         .get(url)
