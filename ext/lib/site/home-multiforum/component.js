@@ -29,7 +29,7 @@ class HomeMultiForum extends Component {
       .then((forums) => {
         this.setState({
           forums,
-          showMore: forums.length === 10
+          showMore: forums.length === 3
         })
       })
       .catch(console.error)

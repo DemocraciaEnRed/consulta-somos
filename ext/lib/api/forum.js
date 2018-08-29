@@ -42,7 +42,7 @@ const attrPregunta = {
   "kind" : "String"
 }
 
-const limit = 10
+const limit = 3
 
 app.get('/search/:byWhat/:page',
 function(req, res, next) {
