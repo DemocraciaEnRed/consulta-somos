@@ -6,10 +6,17 @@
   .container
     .lead
       font-size:18px
+      margin-top: 5px
       &.highlight
         font-size:22px
+        font-weight: 400;
+        text-shadow: none !important;
       span
         color:#0695d6
+    .participar
+      margin-top: 1rem
+      a
+        margin: 10px
 .ext-site-home-multiforum
   background: transparent
 
@@ -40,9 +47,6 @@
       max-width: 500px
       margin: 0 auto .3em
 
-    .jumbotron_body
-      background-color: rgba(#000, .5)
-
   .fa-group
   .fa-newspaper-o
   .fa-bullhorn
@@ -71,6 +75,10 @@
       font-weight:bold
       flex-direction:column
       justify-content:center
+
+    .bold {
+      font-weight: 400
+    }
   .arrow
     text-align:center
 
@@ -80,12 +88,14 @@
     font-weight:600
     margin-top:20px
     .section-icon
-      display: flex
-      flex-direction: column
-      align-items: center
-      span
-        text-transform:uppercase
-        color:#0695d6
+      display: inline-block
+      .icon
+        float: left
+      .text
+        padding-left: 115px
+        padding-top: 10px
+        font-weight: 100
+        font-size: 14px
 
   .fa-group
     background-image: url("ext/lib/site/home-multiforum/users.svg")
