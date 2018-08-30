@@ -88,22 +88,20 @@ class HomeMultiForum extends Component {
         <section
           className='cover jumbotron'
           style={{
-            backgroundImage: `url('https://cldup.com/CAT-P2nS7m.jpg')`
+            backgroundImage: `url('https://consultapublica.blob.core.windows.net/assets/header_consulta-publica.png')`
           }}>
           <div className='jumbotron_body'>
             <div className='container'>
-              <h1>Bienvenido/a a #ConsultaPública</h1>
-              <p className='lead'>
-                Construimos un canal de <span>diálogo y debate</span> de distintas propuestas.
-              </p>
-              <p className='lead'>
-                Ya sos parte de estas conversaciones, es tu turno de compartir tu opinión.
-              </p>
+              <img
+                src="https://consultapublica.blob.core.windows.net/assets/logo_consulta-publica.svg"
+                alt="Logo"
+                width="250px"
+              />
               <p className='lead highlight'>
                 Construyamos una Argentina más abierta, más transparente y colaborativa.
               </p>
               {this.props.user.state.rejected ? (
-                <p>
+                <p className='participar'>
                   <Link
                     className='btn btn-primary'
                     to={{
@@ -126,29 +124,55 @@ class HomeMultiForum extends Component {
           </div>
         </section>
         <div className='lead-paragraph'>
-        <p>
-        Seguí estos pasos para participar y debatir en una forma más efectiva y colaborativa
-        </p>
+          <p>
+            Consulta Publica es un canal de diálogo y debate que permiten la interacción entre el gobierno y la comunidad
+            <br />
+            promoviendo la participación cuidadana y el fortalecimiento de la democracia.
+          </p>
+          <br />
+          <p className="bold">
+            Seguí estos pasos para participar y debatir en una forma más efectiva y colaborativa
+          </p>
         </div>
-        <div className='section-icons col-md-8 offset-md-2'>
+        <div className='section-icons col-md-10 offset-md-1'>
           <div className='row'>
             <div className='section-icon col-md-4 col-xs-12'>
-              <div className="fa-newspaper-o"></div>
-              <span>Informate</span> sobre las consultas
+              <img
+                className='icon'
+                src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-1.svg'
+                alt='Informate'
+                width='100px'
+              />
+              <div className='text'>
+                <h5>Informate</h5> sobre las consultas disponibles
+              </div>
             </div>
             <div className='section-icon col-md-4 col-xs-12'>
-              <div className="fa-group"></div>
-              <span>Participá</span> en los ejes de las consultas
+             <img
+                className='icon'
+                src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-2.svg'
+                alt='Participá'
+                width='100px'
+              />
+              <div className='text'>
+                <h5>Participá</h5> en los ejes de las consultas
+              </div>
             </div>
             <div className='section-icon col-md-4 col-xs-12'>
-              <div className="fa-bullhorn"></div>
-              <span>Compartí</span> tu opinión
+             <img
+                className='icon'
+                src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-3.svg'
+                alt='Compartí'
+                width='100px'
+              />
+              <div className='text'>
+                <h5>Compartí</h5> tu opinión, tu voto o tu comentario
+              </div>
             </div>
           </div>
         </div>
 
         <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
-          <p>Conocé las consultas disponibles</p>
           <i className='icon-arrow-down' onClick={this.handleButtonClick} />
         </div>
 
