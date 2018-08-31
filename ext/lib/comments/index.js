@@ -88,14 +88,14 @@ function getCsv (req, res, next) {
                   comment.createdAt,
                   `"${escapeTxt(comment.text)}"`,
                   `"${escapeTxt(comment.author.fullName)}"`,
-                  `"${usersRaw.find((u) => comment.author.id).email}"`,
+                  `"${usersRaw.find((u) => u.id === comment.author.id).email}"`,
                   reply.id,
                   `"${(reply.createdAt && escapeTxt(moment(reply.createdAt, '', req.locale).format('LL')))}"`,
                   `"${(reply.createdAt && escapeTxt(moment(reply.createdAt, '', req.locale).format('LT')))}"`,
                   reply.createdAt,
                   `"${escapeTxt(reply.text)}"`,
                   `"${escapeTxt(reply.author.fullName)}"`,
-                  `"${!reply.author.id ? '' : usersRaw.find((u) => reply.author.id).email}"`
+                  `"${!reply.author.id ? '' : usersRaw.find((u) => u.id === reply.author.id).email}"`
                 ])
               })
             })
