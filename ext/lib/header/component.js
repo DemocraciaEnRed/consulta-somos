@@ -79,7 +79,7 @@ class Header extends Component {
               <Link
                 to='/ayuda/como-funciona'
                 className='header-link hidden-md-down'>
-                <span>¿Cómo funciona?</span>
+                <span>¿Cómo participo?</span>
               </Link>
             </div>
 

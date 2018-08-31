@@ -4,13 +4,13 @@ import bus from 'bus'
 import forumStore from 'lib/stores/forum-store/forum-store'
 import topicStore from 'lib/stores/topic-store/topic-store'
 import userConnector from 'lib/site/connectors/user'
-import TopicArticle from 'lib/site/topic-layout/topic-article/component'
+import TopicArticle from './topic-article/component'
+import Carrusel from 'ext/lib/site/cards-slider/component'
 import Footer from 'ext/lib/site/footer/component'
 
 class TopicLayout extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       forum: null,
       topic: null
@@ -31,6 +31,13 @@ class TopicLayout extends Component {
       if (err.status === 404) return browserHistory.push('/404')
       throw err
     })
+  }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.params.id !== this.props.params.id) {
+      topicStore.findOne(this.props.params.id)
+      .then((topic) => this.setState({ topic: topic }, () => window.scrollTo(0, 500)))
+    }
   }
 
   componentWillUnmount () {
@@ -71,6 +78,13 @@ class TopicLayout extends Component {
         </section>
         {this.state.forum && this.state.topic && (
           <TopicArticle topic={this.state.topic} forum={this.state.forum} />
+        )}
+        {this.state.forum && this.state.topic && (
+          <div className='seccion-proyectos container-fluid'>
+            <Carrusel
+              forum={this.state.forum}
+              topic={this.state.topic} />
+          </div>
         )}
         <Footer />
       </div>

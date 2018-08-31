@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import t from 't-component'
 import CommentsForm from 'lib/site/topic-layout/topic-article/comments/form/component'
 import CommentsList from './list/component'
@@ -26,20 +27,19 @@ export class Comments extends Component {
 
   render () {
     const { commentsFetch } = this.props
-
     return (
       <div className='topic-comments'>
         <div className='topic-article-content'>
           <h2 className='topic-comments-title'>
-            {t('comments.arguments')}
+           {this.state.comments !== null && (this.state.comments.length + (this.state.comments.length === 1 ? ' comentario' : ' comentarios')) }
             <CommentsOrderBy onSort={this.props.handleSort} />
             {
               new Date(this.props.topic.closingAt) < new Date() &&
               (
                 <div className="alert alert-info" role="alert" style={{marginTop: '10px'}}>
                   <span className="icon-info" style={{marginRight: '5px'}}></span>
-                  <span>La Consulta Pública de los compromisos que formarán parte del Tercer Plan de Acción de Gobierno Abierto ha finalizado.</span>
-                  <br /><span>Para seguir los avances del proceso podés ingresar a <a href='https://www.argentina.gob.ar/mesasogp'>https://www.argentina.gob.ar/mesasogp</a></span>
+                  <span>La Consulta Pública  ha finalizado.</span>
+                  <br /><span><Link to='/'>Te invitamos a conocer otras consultas y participar.</Link></span>
                 </div>
               )
             }
@@ -47,6 +47,7 @@ export class Comments extends Component {
           {
             new Date(this.props.topic.closingAt) >= new Date() &&
             <CommentsForm
+              topic={this.props.topic}
               forum={this.props.forum}
               onSubmit={this.props.handleCreate}
               commentsCreating={this.props.commentsCreating} />
