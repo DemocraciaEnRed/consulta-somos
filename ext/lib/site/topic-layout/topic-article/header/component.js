@@ -70,7 +70,7 @@ export default class Header extends Component {
           this.props.tags.length > 0 &&
           (
             <div className='topic-tags'>
-              { this.props.tags.map((tag, i) => <a href={`${window.location.origin}${urlBuilder.for('site.forum', { forum: this.props.forumName })}?tag=${tag}`} key={i}>{tag}</a>) }
+              { this.props.tags.map((tag, i) => <span key={i}>{tag}</span>) }
             </div>
           )
         }
