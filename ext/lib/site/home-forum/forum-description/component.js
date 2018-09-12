@@ -8,7 +8,7 @@ export default class extends Component {
       <div className='container forum-description'>
         <div className='row'>
           <div
-            className={`col-md-12 content`}
+            className={`col-md-8 offset-md-2 content`}
             ref='content'
             dangerouslySetInnerHTML={{ __html: content }} />
         </div>
