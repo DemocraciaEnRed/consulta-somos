@@ -95,37 +95,23 @@ class HomeMultiForum extends Component {
               <img
                 src="https://consultapublica.blob.core.windows.net/assets/logo_consulta-publica.svg"
                 alt="Logo"
-                width="250px"
+                width="270px"
               />
               <p className='lead highlight'>
                 Construyamos una Argentina más abierta, más transparente y colaborativa.
               </p>
-              {this.props.user.state.rejected ? (
-                <p className='participar'>
-                  <Link
-                    className='btn btn-primary'
-                    to={{
-                      pathname: '/signin',
-                      query: { ref: '/' }
-                    }}>
-                    Quiero participar
-                  </Link>
-                </p>
-              ) : (
-                <p>
-                  <button
-                    className='btn btn-primary'
-                    onClick={this.handleButtonClick}>
-                    Quiero participar
-                  </button>
-                </p>
-              )}
+              <button
+                className='btn btn-primary'
+                onClick={this.handleButtonClick}
+              >
+                Quiero participar
+              </button>
             </div>
           </div>
         </section>
         <div className='lead-paragraph'>
           <p>
-            Consulta Publica es un canal de diálogo y debate que permiten la interacción entre el gobierno y la comunidad
+            <span className="skyblue">Consulta Publica</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad
             <br />
             promoviendo la participación cuidadana y el fortalecimiento de la democracia.
           </p>
@@ -177,7 +163,7 @@ class HomeMultiForum extends Component {
         </div>
 
         <div className='container forums-list' id='consultas'>
-          <h2 className='forums-list-title'>Consultas</h2>
+          <h2 className='forums-list-title'>Conocé las consultas disponibles</h2>
           <div className="filter-container content-center">
             <div className="btn-group btn-group-sm dropdown-element" role="group" aria-label="Filtros">
             <button

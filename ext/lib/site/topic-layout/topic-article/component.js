@@ -83,7 +83,7 @@ class TopicArticle extends Component {
     }
 
     return (
-      <div className={`topic-article-wrapper ${this.state.nodes.length > 0 ? 'large' : 'small'}`}>
+      <div className={`topic-article-wrapper ${this.state.nodes.length >= 0 ? 'large' : 'small'}`}>
 
         <Social topic={topic} />
 
@@ -125,7 +125,7 @@ class TopicArticle extends Component {
       {
         this.state.nodes && <LateralBar nodes={this.state.nodes}/>
       }
-      
+
   </div>
 
     )
