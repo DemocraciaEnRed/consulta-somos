@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 
 export default class extends Component {
-  createClauses = (clauses) => {
-    const cleanText =  clauses.replace(/<\/?[^>]+(>|$)/g, '').split(' ')
-    return {
-      __html: clauses
-    }
-  }
-
   render () {
     const { content } = this.props
 
@@ -15,9 +8,9 @@ export default class extends Component {
       <div className='container forum-description'>
         <div className='row'>
           <div
-            className={`col-md-12 content`}
+            className={`col-md-8 offset-md-2 content`}
             ref='content'
-            dangerouslySetInnerHTML={this.createClauses(content)} />
+            dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </div>
     )
