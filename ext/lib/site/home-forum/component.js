@@ -58,16 +58,6 @@ export default class HomeForum extends Component {
           style={(forum.coverUrl && {
             backgroundImage: 'linear-gradient(rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url("' + forum.coverUrl + '")'
           }) || null}>
-          <div className='jumbotron_body'>
-            <div className='container'>
-              <h1>{forum.title}</h1>
-              <a
-                className='btn btn-primary'
-                onClick={this.handleScroll} >
-                Elegí un eje y participá
-              </a>
-            </div>
-          </div>
           <div className='jumbotron_bar'>
             <div className='container'>
               <div className='row'>
@@ -82,6 +72,16 @@ export default class HomeForum extends Component {
                   </ol>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className='jumbotron_body'>
+            <div className='container'>
+              <h1>{forum.title}</h1>
+              <a
+                className='btn btn-primary'
+                onClick={this.handleScroll} >
+                Elegí un eje y participá
+              </a>
             </div>
           </div>
         </section>
