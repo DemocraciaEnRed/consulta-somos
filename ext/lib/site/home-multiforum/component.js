@@ -98,7 +98,7 @@ class HomeMultiForum extends Component {
                 width="270px"
               />
               <p className='lead highlight'>
-                Construyamos una Argentina más abierta, más transparente y colaborativa.
+                Construyamos una Argentina más abierta, transparente y colaborativa.
               </p>
               <button
                 className='btn btn-primary'
@@ -111,13 +111,13 @@ class HomeMultiForum extends Component {
         </section>
         <div className='lead-paragraph'>
           <p>
-            <span className="skyblue">Consulta Publica</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad
+            <span className="skyblue">Consulta Pública</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad,
             <br />
-            promoviendo la participación cuidadana y el fortalecimiento de la democracia.
+            promueve la participación cuidadana y ayuda a fortalecer la democracia.
           </p>
           <br />
           <p className="bold">
-            Seguí estos pasos para participar y debatir en una forma más efectiva y colaborativa
+            Seguí estos pasos para participar y debatir de forma efectiva y colaborativa
           </p>
         </div>
         <div className='section-icons col-md-10 offset-md-1'>
@@ -152,7 +152,7 @@ class HomeMultiForum extends Component {
                 width='100px'
               />
               <div className='text'>
-                <h5>Compartí</h5> tu opinión, tu voto o tu comentario
+                <h5>Compartí</h5> tu opinión, voto o comentario
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@ class HomeMultiForum extends Component {
                   case 'byDate':
                     return  'Nuevas'
                   case 'byPopular':
-                    return 'Populares'
+                    return 'Relevantes'
                   case 'byClosed':
                     return 'Finalizadas'
                   }
@@ -192,7 +192,7 @@ class HomeMultiForum extends Component {
                 className={`btn btn-item-dropdown ${activeFilter === 'byPopular' ? 'btn-active' : 'btn-secondary'}`}
                 onClick={this.handleClick.bind(this, 'byPopular')}
               >
-                Populares
+                Relevantes
               </li>
               <li
                 className={`btn btn-item-dropdown ${activeFilter === 'byClosed' ? 'btn-active' : 'btn-secondary'}`}
