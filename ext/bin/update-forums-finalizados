@@ -6,7 +6,7 @@ const Forum = models.Forum
 const Topic = models.Topic
 const mapPromises = (fn) => (array) => Promise.all(array.map(fn))
 
-Forum.find({}).exec()
+Forum.find({ deletedAt: null }).exec()
   .then(mapPromises((forum) => {
     if (forum.extra && Object.keys(forum.extra).includes('closingAt')) return
     return Topic.findOne({ forum: forum.id })
