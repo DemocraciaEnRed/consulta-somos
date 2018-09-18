@@ -13,7 +13,10 @@ export default class EditForum extends Component {
       title: this.props.forum.title,
       summary: this.props.forum.summary,
       extra: {
-        richSummary: this.props.forum.extra ? this.props.forum.extra.richSummary : ''
+        richSummary: this.props.forum.extra.richSummary,
+        closingAt: this.props.forum.extra.closingAt,
+        hidden: this.props.forum.extra.hidden,
+        owner: this.props.forum.extra.owner
       },
       coverUrl: this.props.forum.coverUrl,
       updated: false
@@ -24,7 +27,9 @@ export default class EditForum extends Component {
     this.richtext = new Richtext('textarea[name=richSummary]')
     this.richtext.editor.on('text-change', () => {
       this.setState({
-        extra: { richSummary: this.richtext.editor.getHTML() }
+        extra: Object.assign(this.state.extra, {
+          richSummary: this.richtext.editor.getHTML()
+        })
       })
     })
   }
@@ -32,6 +37,22 @@ export default class EditForum extends Component {
   handleChange = (name) => (event) => {
     this.setState({
       [name]: event.target.value
+    })
+  }
+
+  handleChangeExtra = (name) => (event) => {
+    this.setState({
+      extra: Object.assign(this.state.extra, {
+        [name]: event.target.value
+      })
+    })
+  }
+
+  handleChangeHidden = () => (event) => {
+    this.setState({
+      extra: Object.assign(this.state.extra, {
+        hidden: event.target.checked
+      })
     })
   }
 
@@ -66,7 +87,7 @@ export default class EditForum extends Component {
   }
 
   render () {
-    const { title, name, summary, coverUrl, extra, updated } = this.state
+    const { title, name, summary, coverUrl, updated, extra: { closingAt, hidden, owner, richSummary } } = this.state
 
     return (
       <article className='forum-edit-form col-xs-12 col-md-8 col-md-offset-2'>
@@ -124,7 +145,7 @@ export default class EditForum extends Component {
               <div className='form-group clearfix summary'>
                 <textarea
                   name='richSummary'
-                  value={extra.richSummary}
+                  value={richSummary}
                 >
                 </textarea>
               </div>
@@ -137,6 +158,34 @@ export default class EditForum extends Component {
                   placeholder={t('admin-topics-form.placeholder.cover')}
                   value={coverUrl}
                   onChange={this.handleChange('coverUrl')} />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label>Fecha de cierre</label>
+              <div className='form-group clearfix'>
+                <input
+                  type='date'
+                  value={closingAt}
+                  onChange={this.handleChangeExtra('closingAt')} />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label>Ocultar</label>
+              <div className='form-group clearfix'>
+                <input
+                  type='checkbox'
+                  checked={hidden}
+                  onChange={this.handleChangeHidden()} />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label>Autor</label>
+              <div className='form-group clearfix'>
+                <input
+                  type='text'
+                  placeholder='Ministerio de Modernización'
+                  value={owner}
+                  onChange={this.handleChangeExtra('owner')} />
               </div>
             </fieldset>
           </div>

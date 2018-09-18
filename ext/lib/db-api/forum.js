@@ -16,7 +16,7 @@ exports.all = function all (options, fn) {
   log('Looking for all forums.')
 
   var query = Forum
-    .find({ deletedAt: null })
+    .find({ deletedAt: null, 'extra.hidden': false })
     .populate('owner')
     .sort('-createdAt')
 
@@ -91,7 +91,7 @@ exports.findOneByOwner = function findOneByOwner (owner, fn) {
   log('Searching forum of owner %j', owner)
 
   Forum
-    .where({ owner: owner, deletedAt: null })
+    .where({ owner: owner, deletedAt: null, 'extra.hidden': false })
     .populate('owner')
     .findOne(function (err, forum) {
       if (err) {
@@ -112,7 +112,7 @@ exports.findByOwner = function findByOwner (owner, fn) {
   log('Searching forums of owner %j', owner)
 
   Forum
-    .where({ owner: owner, deletedAt: null })
+    .where({ owner: owner, deletedAt: null, 'extra.hidden': false })
     .populate('owner')
     .find(function (err, forums) {
       if (err) {
@@ -130,7 +130,7 @@ exports.findById = function findById (id, fn) {
   log('Searching for forum with id %s', id)
 
   Forum
-    .where({ deletedAt: null, _id: id })
+    .where({ deletedAt: null, _id: id, 'extra.hidden': false })
     .populate('owner')
     .findOne(function (err, forum) {
       if (err) {
@@ -151,7 +151,7 @@ exports.findById = function findById (id, fn) {
 exports.findOneByName = function findOneByName (name, fn) {
   log('Searching for forum with name %s', name)
 
-  var query = { deletedAt: null }
+  var query = { deletedAt: null, 'extra.hidden': false }
 
   if (name) query.name = name
 
@@ -183,7 +183,7 @@ exports.getPermissions = function getPermissions (id, fn) {
   log('Searching for permissions of forum with id %s', id)
 
   Forum
-    .where({ deletedAt: null, _id: id })
+    .where({ deletedAt: null, _id: id, 'extra.hidden': false })
     .select('permissions')
     .populate('permissions.user')
     .findOne((err, forum) => {
@@ -223,7 +223,7 @@ exports.revokePermission = function revokePermission (forumId, user, role) {
 exports.exists = function exists (name, fn) {
   name = normalize(name)
   Forum
-    .find({ deletedAt: null, name: name })
+    .find({ deletedAt: null, name: name, 'extra.hidden': false })
     .limit(1)
     .exec(function (err, forums) {
       return fn(err, !!(forums && forums.length))
@@ -239,7 +239,7 @@ exports.findByClosed = function findByClosed (options, fn) {
   log(`Get forums order by the newest.`)
 
   let query = Forum
-    .find({ deletedAt: { $ne: null } })
+    .find({ deletedAt: null, 'extra.hidden': false, 'extra.closingAt': { $lte: new Date() } })
     .populate('owner')
 
   if (options.limit) query.limit(options.limit)
@@ -260,7 +260,7 @@ exports.findByPopular = function findByPopular (options, fn) {
   log(`Get forums order by the popular topics.`)
 
   let query = Forum
-    .find({ deletedAt: null })
+    .find({ deletedAt: null, 'extra.hidden': false })
     .populate('owner')
 
   if (options.limit) query.limit(options.limit)
