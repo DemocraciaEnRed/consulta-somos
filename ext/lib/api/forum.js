@@ -89,7 +89,8 @@ function createForum(req, res, next) {
     coverUrl: req.body.cover,
     permissions: req.body.permissions,
     extra: {
-      richSummary: req.body.richSummary
+      richSummary: req.body.richSummary,
+      hidden: false
     },
     topicsAttrs: [attrPregunta]
   }
