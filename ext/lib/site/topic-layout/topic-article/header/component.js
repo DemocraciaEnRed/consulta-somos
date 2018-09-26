@@ -57,6 +57,7 @@ export default class Header extends Component {
         </h2>
       )
     }
+
     return (
       <header className='topic-article-header topic-article-content'>
         { this.props.children }
