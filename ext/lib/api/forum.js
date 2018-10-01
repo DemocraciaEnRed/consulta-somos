@@ -89,7 +89,8 @@ function createForum(req, res, next) {
     coverUrl: req.body.cover,
     permissions: req.body.permissions,
     extra: {
-      richSummary: req.body.richSummary
+      richSummary: req.body.richSummary,
+      hidden: false
     },
     topicsAttrs: [attrPregunta]
   }
@@ -114,6 +115,9 @@ function parseUpdateableKeys (req, res, next) {
     'extra'
   ]
   req.keysToUpdate = filter(req.body, (v, k) => updatableKeys.includes(k))
+  if(req.keysToUpdate.extra && req.keysToUpdate.extra.closingAt) {
+    req.keysToUpdate.extra.closingAt = new Date(req.keysToUpdate.extra.closingAt)
+  }
   next()
 },
 function edit (req, res, next) {
