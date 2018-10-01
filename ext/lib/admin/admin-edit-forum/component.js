@@ -16,7 +16,8 @@ export default class EditForum extends Component {
         richSummary: this.props.forum.extra.richSummary,
         closingAt: this.props.forum.extra.closingAt,
         hidden: this.props.forum.extra.hidden,
-        owner: this.props.forum.extra.owner
+        owner: this.props.forum.extra.owner,
+        ownerUrl: this.props.forum.extra.ownerUrl
       },
       coverUrl: this.props.forum.coverUrl,
       updated: false
@@ -87,7 +88,20 @@ export default class EditForum extends Component {
   }
 
   render () {
-    const { title, name, summary, coverUrl, updated, extra: { closingAt, hidden, owner, richSummary } } = this.state
+    const {
+      title,
+      name,
+      summary,
+      coverUrl,
+      updated,
+      extra: {
+        closingAt,
+        hidden,
+        owner,
+        ownerUrl,
+        richSummary
+      }
+    } = this.state
 
     return (
       <article className='forum-edit-form col-xs-12 col-md-8 col-md-offset-2'>
@@ -186,6 +200,16 @@ export default class EditForum extends Component {
                   placeholder='Ministerio de Modernización'
                   value={owner}
                   onChange={this.handleChangeExtra('owner')} />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label>Autor URL</label>
+              <div className='form-group clearfix'>
+                <input
+                  type='text'
+                  placeholder='https://www.argentina.gob.ar/modernizacion'
+                  value={ownerUrl}
+                  onChange={this.handleChangeExtra('ownerUrl')} />
               </div>
             </fieldset>
           </div>
