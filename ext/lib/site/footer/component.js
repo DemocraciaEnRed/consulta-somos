@@ -10,8 +10,8 @@ export default class Footer extends Component {
         <div className='footer container'>
           <div className='institutional'>
             <div className='logo gob'>
-              <a href='https://www.argentina.gob.ar/'>
-                <img src='https://cldup.com/_ZriYFdZN4.svg' />
+              <a href='/'>
+                <img src='https://consultapublica.blob.core.windows.net/assets/Logo_Presidencia.svg' />
               </a>
             </div>
             <p className='text-muted small'>
