@@ -113,7 +113,7 @@ class HomeMultiForum extends Component {
           <p>
             <span className="skyblue">Consulta Pública</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad,
             <br />
-            promueve la participación cuidadana y ayuda a fortalecer la democracia.
+            promueve la participación ciudadana y ayuda a fortalecer la democracia.
           </p>
           <br />
           <p className="bold">
