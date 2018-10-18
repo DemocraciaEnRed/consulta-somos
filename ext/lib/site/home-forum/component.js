@@ -51,6 +51,24 @@ export default class HomeForum extends Component {
 
     const { forum } = this.state
 
+    let author = null
+    if (forum.extra.owner) {
+      let authorName
+      if (forum.extra.ownerUrl) {
+        authorName = (
+          <a
+            href={forum.extra.ownerUrl}
+            target='_blank'
+            rel='noopener noreferrer'>
+            {forum.extra.owner}
+          </a>
+        )
+      } else {
+        authorName = forum.extra.owner
+      }
+      author = <span>{ authorName }</span>
+    }
+
     return (
       <div className='ext-forum-home'>
         <section
@@ -85,14 +103,14 @@ export default class HomeForum extends Component {
             </div>
           </div>
         </section>
-        { (forum.extra && forum.extra.author) &&
+        { (forum.extra && forum.extra.owner) &&
           <div className='container'>
             <div className='row'>
-              <div className='col-md-4 col-sm-12 autor-container'>
+              <div className='col-md-8 offset-md-2 autor-container'>
                 <span>
                   <strong>Autor:</strong>
                 </span>
-                <span>{forum.extra.author}</span>
+                { author }
               </div>
             </div>
           </div>

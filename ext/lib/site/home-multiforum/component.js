@@ -113,7 +113,7 @@ class HomeMultiForum extends Component {
           <p>
             <span className="skyblue">Consulta Pública</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad,
             <br />
-            promueve la participación cuidadana y ayuda a fortalecer la democracia.
+            promueve la participación ciudadana y ayuda a fortalecer la democracia.
           </p>
           <br />
           <p className="bold">
@@ -163,7 +163,7 @@ class HomeMultiForum extends Component {
         </div>
 
         <div className='container forums-list' id='consultas'>
-          <h2 className='forums-list-title'>Conocé las consultas disponibles</h2>
+          <h2 className='forums-list-title'>Conocé las consultas</h2>
           <div className="filter-container content-center">
             <div className="btn-group btn-group-sm dropdown-element" role="group" aria-label="Filtros">
             <button
