@@ -4,8 +4,9 @@ import urlBuilder from 'lib/url-builder'
 
 export default ({ forum }) => (
   <div className='forum-card'>
-    <div className='forum-card-img'>
-      <img src={forum.coverUrl} />
+    <div
+      className='forum-card-img'
+      style={{ backgroundImage: `url(${forum.coverUrl})` }}>
     </div>
     <div className='forum-card-data'>
       <div className='forum-card-header'>
