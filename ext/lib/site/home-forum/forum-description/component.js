@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 export default class extends Component {
   render () {
-    const { content } = this.props
+    let { content } = this.props
+    content = content.replace(/<a/g, '<a rel="noopener noreferer" target="_blank"')
 
     return (
       <div className='container forum-description'>
