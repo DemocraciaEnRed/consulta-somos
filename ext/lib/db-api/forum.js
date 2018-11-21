@@ -282,6 +282,7 @@ exports.findByPopular = function findByPopular (options, fn) {
           })
       }))
       .then((values) => {
+        console.log('values', values);
         fn(null, values.sort(sortByCommentsCount).reverse())
       })
       .catch(fn)
@@ -295,7 +296,7 @@ const sortByCommentsCount = sortBy(getCommentsCount)
 function getCommentsFromTopics (topics) {
   const topicPromises = Promise.all(topics.map((topic) => {
     topic = topic.toJSON()
-    return Comment.count({ topicId: topic.id })
+    return Comment.count({ reference: topic.id })
       .then((commentsCount) => {
         topic.commentsCount = commentsCount
         return topic
