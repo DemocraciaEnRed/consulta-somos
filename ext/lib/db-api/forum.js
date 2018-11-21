@@ -282,7 +282,6 @@ exports.findByPopular = function findByPopular (options, fn) {
           })
       }))
       .then((values) => {
-        console.log('values', values);
         fn(null, values.sort(sortByCommentsCount).reverse())
       })
       .catch(fn)
