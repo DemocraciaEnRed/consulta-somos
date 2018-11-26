@@ -91,12 +91,23 @@
   .section-icons
     font-weight:600
     margin-top:20px
+    @media (max-width: 760px)
+      margin-left:6%
+    @media (max-width: 460px)
+      margin-left:10px  
     .section-icon
       display: inline-block
+      @media (max-width: 760px)
+        display:flex
+        flex-direction:column
+      width:30% !important
       .icon
+        width:100px
         float: left
       .text
         padding-left: 115px
+        @media (max-width: 760px)
+          padding-left:10px
         padding-top: 10px
         font-weight: 100
         font-size: 14px

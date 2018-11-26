@@ -122,34 +122,31 @@ class HomeMultiForum extends Component {
         </div>
         <div className='section-icons col-md-10 offset-md-1'>
           <div className='row'>
-            <div className='section-icon col-md-4 col-xs-12'>
+            <div className='section-icon col-md-4'>
               <img
                 className='icon'
                 src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-1.svg'
                 alt='Informate'
-                width='100px'
               />
               <div className='text'>
                 <h5>Informate</h5> sobre las consultas disponibles
               </div>
             </div>
-            <div className='section-icon col-md-4 col-xs-12'>
+            <div className='section-icon col-md-4'>
              <img
                 className='icon'
                 src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-2.svg'
                 alt='Participá'
-                width='100px'
               />
               <div className='text'>
                 <h5>Participá</h5> en los ejes de las consultas
               </div>
             </div>
-            <div className='section-icon col-md-4 col-xs-12'>
+            <div className='section-icon col-md-4'>
              <img
                 className='icon'
                 src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-3.svg'
                 alt='Compartí'
-                width='100px'
               />
               <div className='text'>
                 <h5>Compartí</h5> tu opinión, voto o comentario
@@ -221,5 +218,3 @@ class HomeMultiForum extends Component {
 }
 
 export default userConnector(HomeMultiForum)
-
-
