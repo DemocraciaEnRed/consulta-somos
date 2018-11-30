@@ -3,6 +3,7 @@ import t from 't-component'
 import config from 'lib/config'
 import Timeago from 'lib/site/timeago'
 import urlBuilder from 'lib/url-builder'
+import { Link } from 'react-router'
 
 export default class Header extends Component {
   render () {
@@ -36,6 +37,19 @@ export default class Header extends Component {
       )
     }
 
+    var isClosed
+    if (this.props.closed) {
+      isClosed = (
+        (
+          <div className="alert alert-info" role="alert">
+            <span className="icon-info" style={{marginRight: '5px'}}></span>
+            <span>La Consulta Pública  ha finalizado.</span>
+            <br /><span><Link to='/'>Te invitamos a conocer otras consultas y participar.</Link></span>
+          </div>
+        )
+      )
+    }
+
     let author = null
     if (this.props.author) {
       let authorName
@@ -59,7 +73,8 @@ export default class Header extends Component {
     }
 
     return (
-      <header className='topic-article-header topic-article-content'>
+      <header className={`topic-article-header topic-article-content ${this.props.closed ? 'isclosed' : ''}`}>
+        {isClosed}
         { this.props.children }
         {learnMore}
         {closingAt}
