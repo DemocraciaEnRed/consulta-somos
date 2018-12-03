@@ -25,26 +25,24 @@ export default class Header extends Component {
     }
 
     var closingAt
-    if (this.props.closingAt) {
+    if (!this.props.closed && this.props.closingAt) {
       closingAt = (
-        <p className='meta-information'>
-          <i className='icon-clock' />
-          <span className='time-ago-label'>
-            {(this.props.closed ? t('common.closed') : t('common.close')) + ' '}
-          </span>
-          <Timeago className='meta-timeago' date={this.props.closingAt} />
-        </p>
+        <div className="alert alert-success" role="alert">
+        <span className="icon-lock" style={{marginRight: '5px'}}></span>
+        <span>La consulta cierra </span>
+          <Timeago className='' date={this.props.closingAt} />
+          </div>
+
       )
     }
 
     var isClosed
-    if (this.props.closed) {
+    if (this.props.closed){
       isClosed = (
         (
-          <div className="alert alert-info" role="alert">
-            <span className="icon-info" style={{marginRight: '5px'}}></span>
-            <span>La Consulta Pública  ha finalizado.</span>
-            <br /><span><Link to='/'>Te invitamos a conocer otras consultas y participar.</Link></span>
+          <div className="alert alert-danger" role="alert">
+            <span className="icon-lock" style={{marginRight: '5px'}}></span>
+            <span>La consulta se encuentra cerrada</span>
           </div>
         )
       )
