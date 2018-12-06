@@ -7,6 +7,7 @@ import Footer from 'ext/lib/site/footer/component'
 import forumStore from '../../stores/forum-store/forum-store'
 import ForumContainer from './forum-container/component'
 import ForumCard from './forum-card/component'
+import Search from './search-form/component'
 
 class HomeMultiForum extends Component {
   constructor (props) {
@@ -200,6 +201,9 @@ class HomeMultiForum extends Component {
             </div>
           </div>
           {!forums.length && <h3 className="no-result">No hay resultados</h3>}
+          
+          <Search />
+          
           {!!forums.length && forums.map((forum, key) => (
             <ForumContainer forum={forum} key={forum.id} />
           ))}
