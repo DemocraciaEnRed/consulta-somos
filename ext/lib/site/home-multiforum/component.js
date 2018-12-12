@@ -7,6 +7,7 @@ import Footer from 'ext/lib/site/footer/component'
 import forumStore from '../../stores/forum-store/forum-store'
 import ForumContainer from './forum-container/component'
 import ForumCard from './forum-card/component'
+import Search from './search/component'
 
 class HomeMultiForum extends Component {
   constructor (props) {
@@ -25,7 +26,7 @@ class HomeMultiForum extends Component {
     } = this.state;
 
     forumStore
-      .findBy(activeFilter)
+      .filterBy(activeFilter)
       .then((forums) => {
         this.setState({
           forums,
@@ -39,7 +40,7 @@ class HomeMultiForum extends Component {
     const { page } = this.state;
 
     forumStore
-      .findBy(name)
+      .filterBy(name)
       .then((forums) => {
         this.setState({
           page,
@@ -57,7 +58,7 @@ class HomeMultiForum extends Component {
     } = this.state;
 
     forumStore
-      .findBy(activeFilter, page + 1)
+      .filterBy(activeFilter, page + 1)
       .then((forums) => {
         this.setState({
           page: this.state.page + 1,
@@ -200,6 +201,9 @@ class HomeMultiForum extends Component {
             </div>
           </div>
           {!forums.length && <h3 className="no-result">No hay resultados</h3>}
+
+          <Search />
+
           {!!forums.length && forums.map((forum, key) => (
             <ForumContainer forum={forum} key={forum.id} />
           ))}
