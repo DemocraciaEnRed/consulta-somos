@@ -18,8 +18,7 @@ export default class BtnMiArgentina extends Component {
         <button
           className='btn btn-block btn-facebook'
           type='submit'>
-          <i className='icon-social-facebook' />
-          {t('signin.login-with-facebook')}
+          {'login con Mi Argentina'}
         </button>
       </form>
     )
