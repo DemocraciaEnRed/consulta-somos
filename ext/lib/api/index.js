@@ -9,6 +9,8 @@ const app = module.exports = express()
 app.use('/ext/auth/miargentina', require('./miargentina'))
 
 app.use('/ext/api/forum', require('./forum'))
+app.use('/ext/api/filter', require('./filter'))
+app.use('/ext/api/search', require('./search'))
 
 app.use(function validationErrorHandler (err, req, res, next) {
   if (res.headersSent) return next(err)
