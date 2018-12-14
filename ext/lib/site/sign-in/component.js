@@ -146,11 +146,9 @@ export class SignIn extends Component {
           <div className='circle'>
             <i className='icon-login' />
           </div>
-          {!config.facebookSignin && (
             <div className='title-page'>
               <h1>{t('header.signin')}</h1>
             </div>
-          )}
         </div>
         <MiArgentinaForm />
         {form}
@@ -163,7 +161,7 @@ export default userConnector(SignIn)
 
 function MiArgentinaForm () {
   return (
-    <div className='facebook-auth-form'>
+    <div className='miargentina-auth-form'>
       <BtnMiargentina />
       <hr />
       <p className='muted'>{t('signin.or-login-with-email')}</p>

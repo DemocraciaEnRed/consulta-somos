@@ -11,14 +11,15 @@ export default class BtnMiArgentina extends Component {
 
     return (
       <form
-        className='btn-facebook-form'
+        className='btn-miargentina-form'
         action={action}
         method='get'
         role='form'>
         <button
-          className='btn btn-block btn-facebook'
+          className='btn btn-block btn-miargentina'
           type='submit'>
-          {'login con Mi Argentina'}
+         <i className='icon-user' />
+          {'Mi Argentina'}
         </button>
       </form>
     )
