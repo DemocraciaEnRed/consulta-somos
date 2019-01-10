@@ -6,10 +6,24 @@ Fork de la plataforma [DemocracyOS](https://github.com/DemocracyOS/democracyos) 
 
 1. Asegurate tener instalado [Docker 1.13.0+](https://www.docker.com/).
 2. Cloná este repositorio.
-3. Copiá el archivo `docker-compose.override.yml.example` a `docker-compose.override.yml`, y agregá tu mail en la variable `STAFF`. De este modo vas a poder administrar el contenido.
+3. Copiá el archivo `docker-compose.override.yml.example` a `docker-compose.override.yml`, y agregá tu mail en la variable `STAFF`. De este modo vas a poder administrar el contenido. (**Edit 10/01/2019**: Revisar el apartado "Nota")
 4. Empezá el servidor con `docker-compose up --build` _(la primera vez puede llevar un ratito)_
 5. Navegá a [http://localhost:3000](http://localhost:3000)
 6. Registrate, entrá, y podés empezar a crear contenido en http://localhost:3000/ajustes/administrar
+
+#### ⚠️ NOTA - Variables de entorno para Mi Argentina
+
+De acuerdo a los ultimos cambios implementados en el sprint para agregar el login con Mi Argentina, se agregan las siguientes variables de entorno. **Importante de agregar al ENV del docker-compose**
+
+```
+OIDC_ISSUER=
+OIDC_AUTH=
+OIDC_TOKEN=
+OIDC_USER=
+OIDC_CLIENT_ID=
+OIDC_CLIENT_SECRET=
+OIDC_CALLBACK=
+```
 
 ### Comandos
 
