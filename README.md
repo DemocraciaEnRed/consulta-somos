@@ -16,6 +16,7 @@ Fork de la plataforma [DemocracyOS](https://github.com/DemocracyOS/democracyos) 
 De acuerdo a los ultimos cambios implementados en el sprint para agregar el login con Mi Argentina, se agregan las siguientes variables de entorno. **Importante de agregar al ENV del docker-compose**
 
 ```
+CUSTOM_SIGNIN=true
 OIDC_ISSUER=
 OIDC_AUTH=
 OIDC_TOKEN=
