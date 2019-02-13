@@ -3,6 +3,7 @@ import t from 't-component'
 import config from 'lib/config'
 import Timeago from 'lib/site/timeago'
 import urlBuilder from 'lib/url-builder'
+import { Link } from 'react-router'
 
 export default class Header extends Component {
   render () {
@@ -24,15 +25,26 @@ export default class Header extends Component {
     }
 
     var closingAt
-    if (this.props.closingAt) {
+    if (!this.props.closed && this.props.closingAt) {
       closingAt = (
-        <p className='meta-information'>
-          <i className='icon-clock' />
-          <span className='time-ago-label'>
-            {(this.props.closed ? t('common.closed') : t('common.close')) + ' '}
-          </span>
-          <Timeago className='meta-timeago' date={this.props.closingAt} />
-        </p>
+        <div className="alert alert-success" role="alert">
+        <span className={ this.props.closed ? 'icon-lock' : 'icon-lock-open'} style={{marginRight: '5px'}}></span>
+        <span>La consulta cierra </span>
+          <Timeago className='' date={this.props.closingAt} />
+          </div>
+
+      )
+    }
+
+    var isClosed
+    if (this.props.closed){
+      isClosed = (
+        (
+          <div className="alert alert-danger" role="alert">
+            <span className="icon-lock" style={{marginRight: '5px'}}></span>
+            <span>La consulta se encuentra cerrada</span>
+          </div>
+        )
       )
     }
 
@@ -59,7 +71,8 @@ export default class Header extends Component {
     }
 
     return (
-      <header className='topic-article-header topic-article-content'>
+      <header className={`topic-article-header topic-article-content ${this.props.closed ? 'isclosed' : ''}`}>
+        {isClosed}
         { this.props.children }
         {learnMore}
         {closingAt}

@@ -6,8 +6,6 @@ const User = require('lib/models').User
 const mongoose = require('mongoose')
 const jwt = require('lib/jwt')
 
-mongoose.set("debug",true);
-
 const app = module.exports = express()
 
 const {

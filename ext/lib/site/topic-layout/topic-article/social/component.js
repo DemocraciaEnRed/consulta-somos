@@ -18,6 +18,8 @@ export default ({ topic }) => {
         <span>{
           moment(topic.publishedAt).format('D [de] MMMM YYYY')
         }</span>
+        <span className={ topic.closed ? 'icon-lock' : 'icon-lock-open'} style={{marginRight: '5px'}}></span>
+        <span className={ topic.closed ? 'closed' : 'open'} >{topic.closed ? 'Cerrada' : 'Disponible'}</span>
         <span>Compartir en redes sociales</span>
       </div>
       <div className='share-links'>

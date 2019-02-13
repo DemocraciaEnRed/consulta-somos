@@ -7,6 +7,7 @@ import Footer from 'ext/lib/site/footer/component'
 import forumStore from '../../stores/forum-store/forum-store'
 import ForumContainer from './forum-container/component'
 import ForumCard from './forum-card/component'
+import Search from './search/component'
 
 class HomeMultiForum extends Component {
   constructor (props) {
@@ -25,7 +26,7 @@ class HomeMultiForum extends Component {
     } = this.state;
 
     forumStore
-      .findBy(activeFilter)
+      .filterBy(activeFilter)
       .then((forums) => {
         this.setState({
           forums,
@@ -39,7 +40,7 @@ class HomeMultiForum extends Component {
     const { page } = this.state;
 
     forumStore
-      .findBy(name)
+      .filterBy(name)
       .then((forums) => {
         this.setState({
           page,
@@ -57,7 +58,7 @@ class HomeMultiForum extends Component {
     } = this.state;
 
     forumStore
-      .findBy(activeFilter, page + 1)
+      .filterBy(activeFilter, page + 1)
       .then((forums) => {
         this.setState({
           page: this.state.page + 1,
@@ -122,34 +123,31 @@ class HomeMultiForum extends Component {
         </div>
         <div className='section-icons col-md-10 offset-md-1'>
           <div className='row'>
-            <div className='section-icon col-md-4 col-xs-12'>
+            <div className='section-icon col-md-4'>
               <img
                 className='icon'
                 src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-1.svg'
                 alt='Informate'
-                width='100px'
               />
               <div className='text'>
                 <h5>Informate</h5> sobre las consultas disponibles
               </div>
             </div>
-            <div className='section-icon col-md-4 col-xs-12'>
+            <div className='section-icon col-md-4'>
              <img
                 className='icon'
                 src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-2.svg'
                 alt='Participá'
-                width='100px'
               />
               <div className='text'>
                 <h5>Participá</h5> en los ejes de las consultas
               </div>
             </div>
-            <div className='section-icon col-md-4 col-xs-12'>
+            <div className='section-icon col-md-4'>
              <img
                 className='icon'
                 src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-3.svg'
                 alt='Compartí'
-                width='100px'
               />
               <div className='text'>
                 <h5>Compartí</h5> tu opinión, voto o comentario
@@ -203,6 +201,9 @@ class HomeMultiForum extends Component {
             </div>
           </div>
           {!forums.length && <h3 className="no-result">No hay resultados</h3>}
+
+          <Search />
+
           {!!forums.length && forums.map((forum, key) => (
             <ForumContainer forum={forum} key={forum.id} />
           ))}
@@ -221,5 +222,3 @@ class HomeMultiForum extends Component {
 }
 
 export default userConnector(HomeMultiForum)
-
-
