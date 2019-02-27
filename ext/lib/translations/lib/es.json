@@ -33,6 +33,6 @@
   "comments.your-argument": "Tu comentario",
   "comments.your.arguments": "Tus comentarios",
   "proposal-options.must-be-signed-in": "Debés estar registrado para participar",
-
-  "forum.form.rich.summary.label": "Resumen largo"
+  "forum.form.rich.summary.label": "Resumen largo",
+  "forum.form.contentType.label": "Tipo de contenido"
 }
