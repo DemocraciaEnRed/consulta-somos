@@ -17,7 +17,8 @@ export default class EditForum extends Component {
         closingAt: this.props.forum.extra.closingAt,
         hidden: this.props.forum.extra.hidden,
         owner: this.props.forum.extra.owner,
-        ownerUrl: this.props.forum.extra.ownerUrl
+        ownerUrl: this.props.forum.extra.ownerUrl,
+        contentType: this.props.forum.extra.contentType || '',
       },
       coverUrl: this.props.forum.coverUrl,
       updated: false
@@ -99,7 +100,8 @@ export default class EditForum extends Component {
         hidden,
         owner,
         ownerUrl,
-        richSummary
+        richSummary,
+        contentType,
       }
     } = this.state
 
@@ -152,6 +154,16 @@ export default class EditForum extends Component {
                   maxLength='300'
                   value={summary}
                   onChange={this.handleChange('summary')} />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label>{t('forum.form.contentType.label')}</label>
+              <div className='form-group clearfix contentType'>
+                <select value={contentType} onChange={this.handleChangeExtra('contentType')} placeholder="Elija una opcion">
+                  <option value="" disabled>- Elija una opción -</option>
+                  <option value="ejes">Ejes de consulta</option>
+                  <option value="propuestas">Propuestas</option>
+                </select>
               </div>
             </fieldset>
             <fieldset>

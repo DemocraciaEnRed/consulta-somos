@@ -65,8 +65,11 @@ class Search extends React.Component {
           execSearch={this.execSearch}
           state={this.state}
         />
-        {showResults && <ResultsSearch results={results} term={term} />}
-        {showEmpty && 'No se han encontrado resultados'}
+        {showResults ? <ResultsSearch results={results} term={term} /> : null}
+        {showEmpty && <p style={{margin: '35px 0', textAlign: 'center'}}>
+        No se han encontrado resultados
+        </p>
+        }
       </div>
     )
   }

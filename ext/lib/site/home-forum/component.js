@@ -95,11 +95,20 @@ export default class HomeForum extends Component {
           <div className='jumbotron_body'>
             <div className='container'>
               <h1>{forum.title}</h1>
+              { forum.extra.contentType === 'ejes' &&
               <a
                 className='btn btn-primary'
                 onClick={this.handleScroll} >
                 Elegí un eje y participá
               </a>
+              }
+              { forum.extra.contentType === 'propuestas' && 
+                <a
+                  className='btn btn-primary'
+                  onClick={this.handleScroll} >
+                  Mirá las propuestas y participá
+                </a>
+              }
             </div>
           </div>
         </section>
@@ -123,8 +132,11 @@ export default class HomeForum extends Component {
           </div>
         }
         <div className='container topics-container' id='anchor' >
-          {this.state.topics.length > 0 &&
+          {this.state.topics.length > 0 && (forum.extra.contentType === 'ejes' || forum.extra.contentType === undefined) &&
             <h5>{`${this.state.topics.length} ${this.state.topics.length > 1 ? 'ejes comprenden' : 'eje comprende'} esta consulta`}</h5>
+          }
+          {this.state.topics.length > 0 && forum.extra.contentType === 'propuestas' &&
+            <h5>{`${this.state.topics.length} ${this.state.topics.length > 1 ? 'propuestas comprenden' : 'propuesta comprende'} esta consulta`}</h5>
           }
           <div className='topics-card-wrapper'>
             {this.state.topics
