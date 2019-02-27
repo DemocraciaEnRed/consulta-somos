@@ -24,7 +24,7 @@ const SearchBar = ({
       </button>
     </div>
     <div
-      onMouseLeave={toggleAdvanceForm.bind(this, false)}
+      
       className={`advancedsearch ${state.show ? 'show': 'hide'}`}
     >
       <div className='button-link'>
@@ -50,7 +50,7 @@ const SearchBar = ({
             onChange={handleChange}
             checked={state.kind === 'eje'}
           />
-            Sólo ejes
+            Sólo ejes y propuestas
         </label>
         <label>
           <input

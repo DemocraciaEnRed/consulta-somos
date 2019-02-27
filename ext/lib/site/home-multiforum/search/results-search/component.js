@@ -57,7 +57,7 @@ const Consulta = ({ title, summary, img, createdAt, url }) => (
     <div className="third-column">
       <h5>{title}</h5>
       <p className="summary">{summary}</p>
-      <a href={url}>Ver los ejes que comprende la consulta</a>
+      <a href={url}>Ver los ejes/propuestas que comprende la consulta</a>
     </div>
   </div>
 )
