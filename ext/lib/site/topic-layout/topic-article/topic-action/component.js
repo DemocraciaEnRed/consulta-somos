@@ -43,7 +43,7 @@ export default ({ topic, userAttrs }) => (
     {(() => {
       switch(topic.action.method) {
         case 'vote':
-          return  <Vote topic={topic} positiveColor='#0695d6' neutralColor='#666666' negativeColor='#7b548a' />
+          return  <Vote topic={topic} positiveColor='#4eafe6' neutralColor='#666666' negativeColor='#7b548a' />
         case 'poll':
           return  <Poll topic={topic} />
         case 'cause':

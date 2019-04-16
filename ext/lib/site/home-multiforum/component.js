@@ -89,20 +89,20 @@ class HomeMultiForum extends Component {
         <section
           className='cover jumbotron'
           style={{
-            backgroundImage: `url('https://consultapublica.blob.core.windows.net/assets/header_consulta-publica.png')`
+            backgroundColor: '#4eafe6'
           }}>
           <div className='jumbotron_body'>
             <div className='container'>
               <img
-                src="https://consultapublica.blob.core.windows.net/assets/logo_consulta-publica.svg"
+                src="ext/lib/site/home-multiforum/somos-logo.png"
                 alt="Logo"
-                width="270px"
               />
               <p className='lead highlight'>
-                Construyamos una Argentina más abierta, transparente y colaborativa.
+                A Somos lo construimos entre todes
               </p>
+              
               <button
-                className='btn btn-primary'
+                className='btn btn-primary participar'
                 onClick={this.handleButtonClick}
               >
                 Quiero participar
@@ -110,56 +110,54 @@ class HomeMultiForum extends Component {
             </div>
           </div>
         </section>
-        <div className='lead-paragraph'>
-          <p>
-            <span className="skyblue">Consulta Pública</span> es un canal de diálogo y debate que permite la interacción entre el gobierno y la comunidad,
-            <br />
-            promueve la participación ciudadana y ayuda a fortalecer la democracia.
-          </p>
-          <br />
-          <p className="bold">
-            Seguí estos pasos para participar y debatir de forma efectiva y colaborativa
-          </p>
-        </div>
-        <div className='section-icons col-md-10 offset-md-1'>
-          <div className='row'>
-            <div className='section-icon col-md-4'>
-              <img
-                className='icon'
-                src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-1.svg'
-                alt='Informate'
-              />
-              <div className='text'>
-                <h5>Informate</h5> sobre las consultas disponibles
-              </div>
-            </div>
-            <div className='section-icon col-md-4'>
-             <img
-                className='icon'
-                src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-2.svg'
-                alt='Participá'
-              />
-              <div className='text'>
-                <h5>Participá</h5> en los ejes de las consultas
-              </div>
-            </div>
-            <div className='section-icon col-md-4'>
-             <img
-                className='icon'
-                src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-3.svg'
-                alt='Compartí'
-              />
-              <div className='text'>
-                <h5>Compartí</h5> tu opinión, voto o comentario
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div className='lead-paragraph last col-md-4 offset-md-4 col-xs-12'>
           <i className='icon-arrow-down' onClick={this.handleButtonClick} />
         </div>
+        <div className='lead-paragraph'>
+                <p>
+                  <span className="skyblue">Somos parte</span> nuevo espacio de acción y participación política en donde todos y
+                  <br />
+                  todas podamos sentirnos parte de un proyecto colectivo popular, feminista,
+                </p>
+                <br />
+                <p className="bold">
+                  Seguí estos pasos para participar y participa del movimiento
+                </p>
+              </div>
 
+              <div className='section-icons col-md-10 offset-md-1'>
+                <div className='section-icon'>
+                  <img
+                    className='icon'
+                    src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-1.svg'
+                    alt='Informate'
+                  />
+                  <div className='text'>
+                    <h5>Informate</h5>
+                  </div>
+                </div>
+                <div className='section-icon'>
+                  <img
+                    className='icon'
+                    src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-2.svg'
+                    alt='Participá'
+                  />
+                  <div className='text'>
+                    <h5>Participá</h5>
+                  </div>
+                </div>
+                <div className='section-icon'>
+                  <img
+                    className='icon'
+                    src='https://consultapublica.blob.core.windows.net/assets/icono_consulta-publica-3.svg'
+                    alt='Compartí'
+                  />
+                  <div className='text'>
+                    <h5>Compartí</h5>
+                  </div>
+                </div>
+              </div>
         <div className='container forums-list' id='consultas'>
           <h2 className='forums-list-title'>Conocé las consultas</h2>
           <div className="filter-container content-center">

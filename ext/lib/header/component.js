@@ -120,8 +120,8 @@ const Logo = () => {
 
   return (
     <Element {...props}>
-      <img className='logo-desktop' src={config.logo} />
-      <img className='logo-mobile' src={config.logoMobile} />
+      <img className='logo-desktop' src="ext/lib/site/home-multiforum/somos-logo.png" />
+      <img className='logo-mobile' src="ext/lib/site/home-multiforum/somos-logo.png" />
     </Element>
   )
 }

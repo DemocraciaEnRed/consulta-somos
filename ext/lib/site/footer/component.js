@@ -11,7 +11,7 @@ export default class Footer extends Component {
           <div className='institutional'>
             <div className='logo gob'>
               <a href='/'>
-                <img src='https://consultapublica.blob.core.windows.net/assets/Logo_Presidencia.svg' />
+                <img src="ext/lib/site/home-multiforum/somos-logo-color.png" />
               </a>
             </div>
             <p className='text-muted small'>
